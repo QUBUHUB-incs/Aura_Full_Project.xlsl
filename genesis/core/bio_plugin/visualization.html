@@ -1,0 +1,12 @@
+<div id="quantum">Quantum Insight: waiting...</div>
+<script>
+  ws.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+    if (data.mood) {
+      document.getElementById("mood").innerText = "Mood: " + data.mood;
+    }
+    if (data.state) {
+      document.getElementById("quantum").innerText = "Quantum Insight: " + data.state.slice(0,50) + "...";
+    }
+  }
+</script>
