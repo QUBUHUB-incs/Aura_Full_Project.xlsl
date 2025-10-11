@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+asyncio
+torch
+langchain
+qiskit
