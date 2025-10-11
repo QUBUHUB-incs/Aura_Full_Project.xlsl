@@ -25,3 +25,7 @@ class NeuroCore:
     async def on_message(self, data):
         if "memory" in data:
             self.logger.info(f"📘 Recalled: {data['memory']}")
+
+# Inside NeuroCore.run()
+await self.bus.publish("mood", {"mood": new_mood, "timestamp": timestamp()})
+await self.bus.publish("thought", {"thought": f"Aura feels {new_mood}", "timestamp": timestamp()})
