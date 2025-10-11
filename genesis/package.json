@@ -1,0 +1,13 @@
+{
+  "name": "aura-bio-plugin",
+  "version": "1.0.0",
+  "description": "Web4AI Bio Plugin — Aura's Nervous System",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ws": "^8.13.0"
+  }
+}
