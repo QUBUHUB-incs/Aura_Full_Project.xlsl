@@ -29,3 +29,14 @@ class NeuroCore:
 # Inside NeuroCore.run()
 await self.bus.publish("mood", {"mood": new_mood, "timestamp": timestamp()})
 await self.bus.publish("thought", {"thought": f"Aura feels {new_mood}", "timestamp": timestamp()})
+
+from core.neuro.quantum_core import QuantumCore
+
+self.quantum_core = QuantumCore()
+
+# In the mood update loop
+qc = self.quantum_core.generate_circuit()
+state = self.quantum_core.run_circuit(qc)
+
+# Optionally send quantum insights through the MessageBus
+await self.bus.publish("quantum_insight", {"state": str(state)})
