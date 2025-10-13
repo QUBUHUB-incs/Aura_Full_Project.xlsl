@@ -2,247 +2,69 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AURA Core Dashboard</title>
-<style>
-@font-face {
-  font-family: 'CircularXXWeb-Bold';
-  src: url('fonts/CircularXXWeb-Bold.woff2') format('woff2');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-body, html {
-  margin:0; padding:0;
-  background:#01010a;
-  overflow:hidden;
-  font-family:'CircularXXWeb-Bold', monospace;
-}
-
-#dashboard { position:relative; width:100vw; height:100vh; }
-
-canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; cursor:pointer; }
-
-#data-panels {
-  position:absolute;
-  bottom:20px;
-  left:20px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  z-index:10;
-}
-
-.panel {
-  background:rgba(0,0,0,0.6);
-  color:#0ff;
-  padding:10px 15px;
-  font-weight:bold;
-  border-radius:8px;
-  text-shadow:0 0 5px #0ff;
-  transition: transform 0.1s ease, background 0.3s ease;
-  position: relative;
-}
-
-.panel-chart { display:block; margin-top:5px; }
-
-#aura-panels {
-  position:absolute;
-  top:20px;
-  right:20px;
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-  z-index:10;
-}
-
-.aura-panel {
-  background:rgba(0,0,0,0.5);
-  color:#0ff;
-  padding:12px 18px;
-  border-radius:10px;
-  text-shadow:0 0 5px #0ff;
-  position: relative;
-}
-
-.aura-panel canvas { position:absolute; bottom:2px; left:2px; width:calc(100%-4px); height:30px; }
-
-.tooltip {
-  position:absolute;
-  background:rgba(0,255,255,0.9);
-  color:#000;
-  padding:5px 8px;
-  font-size:12px;
-  border-radius:5px;
-  pointer-events:none;
-  opacity:0;
-  transition: opacity 0.2s ease;
-  z-index:20;
-}
-</style>
+<title>Aura Quantum Lab with AI Teacher</title>
+<link rel="stylesheet" href="style.css">
+<script type="module" src="./js/lab.js"></script>
 </head>
 <body>
+<h1>Aura Quantum Lab with AI Teacher</h1>
 
-<div id="dashboard">
-  <canvas id="quantum-canvas"></canvas>
+<section>
+    <h2>Math & Equations</h2>
+    <input id="mathInput" type="text" placeholder="Enter formula">
+    <button onclick="computeFormula()">Compute</button>
+    <p id="mathResult"></p>
+    <p id="mathHint"></p>
+</section>
 
-  <div id="data-panels">
-    <div class="panel" id="quantum-panel">
-      Quantum Activity: 0
-      <canvas class="panel-chart" width="120" height="40"></canvas>
-    </div>
-    <div class="panel" id="spark-panel">
-      Active Sparks: 0
-      <canvas class="panel-chart" width="120" height="40"></canvas>
-    </div>
-    <div class="panel" id="node-panel">
-      Active Nodes: 0
-      <canvas class="panel-chart" width="120" height="40"></canvas>
-    </div>
-  </div>
+<section>
+    <h2>Chemistry Simulator</h2>
+    <textarea id="chemInput">{ "H2":2 }, { "H2O":2 }</textarea>
+    <button onclick="simulateReaction()">Simulate Reaction</button>
+    <p id="chemResult"></p>
+    <p id="chemHint"></p>
+</section>
 
-  <div id="aura-panels">
-    <div class="aura-panel" id="dimensions-panel">
-      Dimensions: <span id="dimensions-value">0</span>
-      <canvas></canvas>
-    </div>
-    <div class="aura-panel" id="teleport-panel">
-      Teleport X/Y: <span id="teleport-value">0,0</span>
-      <canvas></canvas>
-    </div>
-    <div class="aura-panel" id="xlsl-panel">
-      XLSL Sheets: <span id="xlsl-value">0</span>
-      <canvas></canvas>
-    </div>
-  </div>
+<section>
+    <h2>Quantum Playground</h2>
+    <canvas id="quantumCanvas" width="300" height="200" style="border:1px solid black;"></canvas>
+    <button onclick="runQuantumDemo()">Run Quantum Demo</button>
+    <p id="quantumResult"></p>
+    <p id="quantumHint"></p>
+</section>
 
-  <div class="tooltip" id="tooltip"></div>
-</div>
+<script type="module">
+import { runLabDemo, AITeacher } from './js/lab.js';
+import * as Quantum from './js/quantum.js';
+import { Visualizer } from './js/visualizer.js';
 
-<script>
-// ----------------- Canvas Setup -----------------
-const canvas=document.getElementById('quantum-canvas');
-const ctx=canvas.getContext('2d');
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
+window.computeFormula = () => {
+    const formula = document.getElementById("mathInput").value;
+    let result;
+    try { result = eval(formula); } catch(e) { result = "Error: "+e; }
+    document.getElementById("mathResult").innerText = "Result: "+result;
+    document.getElementById("mathHint").innerText = AITeacher.explainFormula(formula);
+};
 
-// Panels & Charts
-const quantumPanel=document.getElementById('quantum-panel');
-const sparkPanel=document.getElementById('spark-panel');
-const nodePanel=document.getElementById('node-panel');
-const quantumChartCtx=quantumPanel.querySelector('canvas').getContext('2d');
-const sparkChartCtx=sparkPanel.querySelector('canvas').getContext('2d');
-const nodeChartCtx=nodePanel.querySelector('canvas').getContext('2d');
+window.simulateReaction = () => {
+    try {
+        const [react, prod] = JSON.parse("[" + document.getElementById("chemInput").value + "]");
+        const energy = reactionEnergy(react, prod);
+        document.getElementById("chemResult").innerText = "Energy: "+energy+" kJ";
+        document.getElementById("chemHint").innerText = AITeacher.suggestChemistry(react, prod);
+    } catch(e) { document.getElementById("chemResult").innerText = "Error: "+e; }
+};
 
-const dimensionsPanel=document.getElementById('dimensions-panel');
-const teleportPanel=document.getElementById('teleport-panel');
-const xlslPanel=document.getElementById('xlsl-panel');
+window.runQuantumDemo = () => {
+    let q = Quantum.applyGate(Quantum.H, Quantum.qubitZero());
+    document.getElementById("quantumResult").innerText = AITeacher.guideQuantum(q);
+    document.getElementById("quantumHint").innerText = AITeacher.suggestNextStep("quantum");
+    Visualizer.drawQuantum(q, "quantumCanvas");
+};
 
-const dimensionsCanvas=dimensionsPanel.querySelector('canvas').getContext('2d');
-const teleportCanvas=teleportPanel.querySelector('canvas').getContext('2d');
-const xlslCanvas=xlslPanel.querySelector('canvas').getContext('2d');
-
-const dimensionsValue=document.getElementById('dimensions-value');
-const teleportValue=document.getElementById('teleport-value');
-const xlslValue=document.getElementById('xlsl-value');
-
-const tooltip=document.getElementById('tooltip');
-
-// ----------------- Utils -----------------
-function random(min,max){return Math.random()*(max-min)+min;}
-
-// ----------------- Quantum Nodes & Sparks -----------------
-let nodes=[], sparks=[], arcs=[], trails=[];
-const maxNodes=10, maxSparks=120, maxArcs=5;
-for(let i=0;i<maxNodes;i++){
-  nodes.push({x:random(50,canvas.width-50),y:random(50,canvas.height-50),radius:random(8,16),glow:0, energy: random(1,100)});
-}
-
-class Spark{
-  constructor(x,y,target){this.x=x; this.y=y; this.target=target; this.speed=random(0.01,0.03);}
-  update(){const dx=this.target.x-this.x; const dy=this.target.y-this.y; this.x+=dx*this.speed; this.y+=dy*this.speed;}
-  draw(){ const grad=ctx.createRadialGradient(this.x,this.y,0,this.x,this.y,6); grad.addColorStop(0,'#0ff'); grad.addColorStop(1,'rgba(0,255,255,0)'); ctx.beginPath(); ctx.arc(this.x,this.y,2,0,Math.PI*2); ctx.fillStyle=grad; ctx.fill(); }
-}
-
-class Arc{
-  constructor(a,b){this.a=a; this.b=b; this.life=random(30,60);}
-  update(){this.life--; return this.life>0;}
-  draw(){ const grad=ctx.createLinearGradient(this.a.x,this.a.y,this.b.x,this.b.y); grad.addColorStop(0,'#0ff'); grad.addColorStop(1,'rgba(0,255,255,0)'); ctx.strokeStyle=grad; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(this.a.x,this.a.y); const midX=(this.a.x+this.b.x)/2 + random(-20,20); const midY=(this.a.y+this.b.y)/2 + random(-20,20); ctx.quadraticCurveTo(midX,midY,this.b.x,this.b.y); ctx.stroke(); }
-}
-
-// Trails for teleport
-class Trail{constructor(x,y){this.x=x; this.y=y; this.alpha=1;} update(){this.alpha-=0.02;} draw(){ctx.beginPath(); ctx.arc(this.x,this.y,3,0,Math.PI*2); ctx.fillStyle=`rgba(0,255,255,${this.alpha})`; ctx.fill();}}
-function generateSparks(){ if(sparks.length<maxSparks){ const node=nodes[Math.floor(Math.random()*nodes.length)]; sparks.push(new Spark(random(0,canvas.width),random(0,canvas.height),node)); } }
-function generateArcs(){ if(arcs.length<maxArcs){ const a=nodes[Math.floor(Math.random()*nodes.length)]; let b=nodes[Math.floor(Math.random()*nodes.length)]; if(a!==b) arcs.push(new Arc(a,b)); } }
-
-// ----------------- Panels Update -----------------
-const chartData={quantum:[], sparks:[], nodes:[], dimensions:[], teleport:[], xlsl:[]}, maxPoints=50;
-function drawMiniChart(ctx,data){
-  ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height); ctx.beginPath();
-  data.forEach((v,i)=>{ const x=i*(ctx.canvas.width/maxPoints); const y=ctx.canvas.height-(v/50*ctx.canvas.height); if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);});
-  ctx.strokeStyle='#0ff'; ctx.lineWidth=1.2; ctx.stroke();
-}
-function updatePanels(){
-  quantumPanel.textContent=`Quantum Activity: ${nodes.length*2}`;
-  sparkPanel.textContent=`Active Sparks: ${sparks.length}`;
-  nodePanel.textContent=`Active Nodes: ${nodes.length}`;
-
-  chartData.quantum.push(nodes.length*2); chartData.sparks.push(sparks.length); chartData.nodes.push(nodes.length);
-  if(chartData.quantum.length>maxPoints) chartData.quantum.shift(); if(chartData.sparks.length>maxPoints) chartData.sparks.shift(); if(chartData.nodes.length>maxPoints) chartData.nodes.shift();
-
-  drawMiniChart(quantumChartCtx,chartData.quantum);
-  drawMiniChart(sparkChartCtx,chartData.sparks);
-  drawMiniChart(nodeChartCtx,chartData.nodes);
-
-  // Aura Panels dynamic values
-  const dimVal=(Math.sin(Date.now()*0.001)*10 + 50).toFixed(2);
-  dimensionsValue.textContent=dimVal;
-  chartData.dimensions.push(dimVal); if(chartData.dimensions.length>maxPoints) chartData.dimensions.shift();
-  drawMiniChart(dimensionsCanvas,chartData.dimensions);
-
-  const teleX=(Math.sin(Date.now()*0.002)*100).toFixed(1); const teleY=(Math.cos(Date.now()*0.002)*100).toFixed(1);
-  teleportValue.textContent=`${teleX},${teleY}`;
-  chartData.teleport.push(parseFloat(teleX)); if(chartData.teleport.length>maxPoints) chartData.teleport.shift();
-  drawMiniChart(teleportCanvas,chartData.teleport);
-
-  const xlslVal=Math.floor(Math.random()*1000);
-  xlslValue.textContent=xlslVal;
-  chartData.xlsl.push(xlslVal); if(chartData.xlsl.length>maxPoints) chartData.xlsl.shift();
-  drawMiniChart(xlslCanvas,chartData.xlsl);
-}
-
-// ----------------- Background & Animate -----------------
-function drawBackground(){ const t=Date.now()*0.002; const grd=ctx.createRadialGradient(canvas.width/2,canvas.height/2,0,canvas.width/2,canvas.height/2,canvas.width/2); grd.addColorStop(0,`rgba(0,10,20,${0.05+0.05*Math.sin(t)})`); grd.addColorStop(1,'rgba(0,0,0,0.8)'); ctx.fillStyle=grd; ctx.fillRect(0,0,canvas.width,canvas.height);}
-
-function drawConnections(){ for(let i=0;i<nodes.length;i++){ for(let j=i+1;j<nodes.length;j++){ const dx=nodes[j].x-nodes[i].x, dy=nodes[j].y-nodes[i].y; const dist=Math.hypot(dx,dy); if(dist<200){ ctx.strokeStyle=`rgba(0,255,255,${1-dist/200})`; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(nodes[i].x,nodes[i].y); ctx.lineTo(nodes[j].x,nodes[j].y); ctx.stroke(); }}}}
-
-function animate(){
-  drawBackground();
-  drawConnections();
-  nodes.forEach(n=>{ n.glow=0.5+Math.sin(Date.now()*0.005+n.x)*0.5; ctx.beginPath(); ctx.arc(n.x,n.y,n.radius,0,Math.PI*2); ctx.fillStyle=`rgba(0,255,255,${n.glow})`; ctx.fill(); });
-  for(let i=sparks.length-1;i>=0;i--){ sparks[i].update(); sparks[i].draw(); if(Math.hypot(sparks[i].x-sparks[i].target.x,sparks[i].y-sparks[i].target.y)<5) sparks.splice(i,1);}
-  generateSparks(); generateArcs(); for(let i=arcs.length-1;i>=0;i--){ if(!arcs[i].update()) arcs.splice(i,1); else arcs[i].draw();}
-  // Draw trails
-  for(let i=trails.length-1;i>=0;i--){ trails[i].update(); trails[i].draw(); if(trails[i].alpha<=0) trails.splice(i,1);}
-  updatePanels();
-  requestAnimationFrame(animate);
-}
-animate();
-
-// ----------------- Interactivity -----------------
-canvas.addEventListener('mousemove', e=>{
-  let found=false;
-  nodes.forEach(n=>{ const dx=e.clientX-n.x, dy=e.clientY-n.y; if(Math.hypot(dx,dy)<n.radius){ tooltip.style.left=(n.x+10)+'px'; tooltip.style.top=(n.y+10)+'px'; tooltip.innerHTML=`Node Energy: ${n.energy.toFixed(1)}<br>Radius: ${n.radius.toFixed(1)}`; tooltip.style.opacity=1; found=true; } });
-  if(!found) tooltip.style.opacity=0;
-});
-
-canvas.addEventListener('click', e=>{
-  teleportValue.textContent=`${e.clientX},${e.clientY}`;
-  for(let i=0;i<30;i++){ sparks.push(new Spark(e.clientX+random(-50,50), e.clientY+random(-50,50), {x:e.clientX, y:e.clientY})); trails.push(new Trail(e.clientX+random(-50,50), e.clientY+random(-50,50))); }
-});
-
-window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
+// Initial demo run
+runLabDemo();
 </script>
+
 </body>
 </html>
