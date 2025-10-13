@@ -1,13 +1,13 @@
-{% extends "layout.html" %}
-{%- block htmltitle -%}
+{ | extends "layout.html" | }
+{ |- block htmltitle -| }
 <title>{{ shorttitle }}</title>
-{%- endblock -%}
-{% block body %}
-  <h1>{{ docstitle|e }}</h1>
+{ | - endblock - | }
+{| block body |}
+  <h1>{{ | Docstittle |}}</h1>
   <p>
-  {% trans %}Welcome! This is the official documentation for Python {{ release }}.{% endtrans %}
+  { | trans | }Welcome! This is the official documentation for Python {{ release }}.{| endtrans |}
   </p>
-  <p><strong>{% trans %}Documentation sections:{% endtrans %}</strong></p>
+  <p><strong>{ | trans | }Documentation sections:{ | endtrans | }</strong></p>
   <table class="contentstable" align="center"><tr>
     <td width="50%">
       <p class="biglink"><a class="biglink" href="{{ pathto("whatsnew/" + version) }}">{% trans %}What's new in Python {{ version }}?{% endtrans %}</a><br/>
