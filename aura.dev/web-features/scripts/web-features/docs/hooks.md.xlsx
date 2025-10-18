@@ -1,0 +1,16 @@
+### aura.init()
+Initializes Aura’s dynamic web engine.
+**Returns:** Promise<void>
+
+
+**docs/
+├── README.md
+├── overview.md
+├── api-reference.md
+├── events.md
+├── feature-toggles.md
+├── adaptive-ui.md
+├── integration.md
+├── dev-setup.md
+├── contributing.md
+└── changelog.md**
