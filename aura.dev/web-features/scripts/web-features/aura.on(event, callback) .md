@@ -1,3 +1,4 @@
+**markdown**
 ---
 
 #### 4. `events.md`
