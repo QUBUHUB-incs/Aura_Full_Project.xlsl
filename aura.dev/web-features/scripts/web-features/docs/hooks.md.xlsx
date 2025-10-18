@@ -2,8 +2,8 @@
 Initializes Aura’s dynamic web engine.
 **Returns:** Promise<void>
 
-
-**docs/
+```bash
+docs/
 ├── README.md
 ├── overview.md
 ├── api-reference.md
@@ -13,4 +13,5 @@ Initializes Aura’s dynamic web engine.
 ├── integration.md
 ├── dev-setup.md
 ├── contributing.md
-└── changelog.md**
+└── changelog.md
+–––
