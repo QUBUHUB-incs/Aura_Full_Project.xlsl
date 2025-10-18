@@ -36,3 +36,4 @@ genie -s
 # Your hostname should have been appended with "-wsl"
 
 cd ~wsl --export Aura .\WSL\YunoHost.tar.gz
+https://raycast.com/?via=Auraecosystem
