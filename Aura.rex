@@ -7,6 +7,7 @@
 - Sₘ = SCTM Score = Iₙ * (1-Rₜ)  
 - Bars = visual representation (~10 points per block)
 
+
 ---
 
 ## 1️⃣ Module Data
