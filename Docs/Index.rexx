@@ -1,7 +1,52 @@
-
+---
 ![page_test](https://sciencex.com/my-news/1/)
 
-```
++---------------------------+
+|       REXX SCTM Engine    |  <-- Logic & simulation layer
+|---------------------------|
+| - Computes Sₘ scores      |
+| - Evaluates dependencies  |
+| - Predictive bottlenecks  |
+| - Simulates module behavior|
++------------+--------------+
+             |
+             v
++---------------------------+
+|      Output Layer         |  <-- JSON / Config feed
+|---------------------------|
+| - Priority lists          |
+| - Dependency rules        |
+| - Module weight factors   |
+| - Bottleneck flags        |
++------------+--------------+
+             |
+             v
++---------------------------+
+|       Aura Core Modules   |  <-- Active intelligence
+|---------------------------|
+| - Quantum Activity        |
+| - Sparks                  |
+| - Teleportation           |
+| - Dimensions & Nodes      |
+| - XLSL Sheets             |
+|---------------------------|
+| Modules read SCTM outputs |
+| Modules self-adjust       |
+| Workflow & task priorities|
+| Bottleneck detection & adaptive behavior |
++---------------------------+
+             |
+             v
++---------------------------+
+|       Aura Dashboard      |  <-- Visualization layer
+|---------------------------|
+| - Live bars, charts       |
+| - Dependency graphs       |
+| - Prioritized execution   |
+| - Interactive modules     |
++---------------------------+
+
+---
 
 TEST
 /project-root
