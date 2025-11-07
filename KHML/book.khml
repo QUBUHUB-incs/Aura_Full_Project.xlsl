@@ -1,0 +1,19 @@
+<page title="KHMLBook" theme="discord dark">
+  <header>
+    <logo text="KHMLBook" />
+    <nav>
+      <link to="home" />
+      <link to="profile" />
+      <link to="logout" />
+    </nav>
+  </header>
+
+  <feed>
+    <post user="Yakub" time="5m ago">
+      <text>Testing KHML 🚀</text>
+      <img src="test.png" />
+    </post>
+  </feed>
+
+  <ai-chat name="Lola" personality="friendly" />
+</page>
