@@ -1,0 +1,213 @@
+<document>
+    <head>
+        <title>KHML Social Lite</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f2f5;
+                margin: 0;
+                display: flex;
+            }
+            header {
+                background-color: #1877f2;
+                color: white;
+                padding: 15px 20px;
+                font-size: 22px;
+                width: 100%;
+                position: fixed;
+                top: 0;
+                z-index: 1000;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            header .notifications {
+                background-color: red;
+                border-radius: 50%;
+                padding: 5px 10px;
+                font-size: 14px;
+                margin-left: 10px;
+            }
+            aside {
+                width: 220px;
+                padding-top: 60px;
+                background-color: #fff;
+                height: 100vh;
+                border-right: 1px solid #ddd;
+                box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+            }
+            aside ul {
+                list-style: none;
+                padding: 0;
+            }
+            aside li {
+                padding: 15px 20px;
+                cursor: pointer;
+            }
+            aside li:hover {
+                background-color: #f0f2f5;
+            }
+            main {
+                flex: 1;
+                padding: 80px 20px 20px 20px;
+                max-width: 650px;
+                margin: auto;
+            }
+            .post, .new-post {
+                background-color: white;
+                padding: 15px;
+                margin-bottom: 15px;
+                border-radius: 8px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            }
+            .post button {
+                background-color: #1877f2;
+                color: white;
+                border: none;
+                padding: 6px 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-right: 5px;
+            }
+            input, textarea {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            .chat {
+                width: 220px;
+                padding-top: 60px;
+                background-color: #fff;
+                border-left: 1px solid #ddd;
+                box-shadow: -2px 0 5px rgba(0,0,0,0.05);
+                height: 100vh;
+                overflow-y: auto;
+            }
+            .chat h4 {
+                padding: 10px;
+                margin: 0;
+                background-color: #eee;
+                text-align: center;
+            }
+            .chat .message {
+                padding: 8px 12px;
+                margin: 5px 10px;
+                border-radius: 8px;
+                background-color: #f1f1f1;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            KHML Social Lite
+            <span>🔔<span class="notifications" id="notifCount">0</span></span>
+        </header>
+
+        <aside>
+            <ul>
+                <li>Home</li>
+                <li>Profile</li>
+                <li>Messages</li>
+                <li>Friend Requests <span id="friendReqCount">(0)</span></li>
+                <li>Settings</li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="new-post">
+                <h3>Create Post</h3>
+                <input id="author" type="text" placeholder="Your name">
+                <textarea id="content" placeholder="What's on your mind?"></textarea>
+                <button kh-action="createPost()">Post</button>
+            </div>
+
+            <post kh-for="post in posts">
+                <div class="post">
+                    <h4>{{ post.author }}</h4>
+                    <p>{{ post.content }}</p>
+                    <button kh-action="likePost('{{ post.id }}')">Like</button>
+                    <button kh-action="commentPost('{{ post.id }}')">Comment</button>
+                </div>
+            </post>
+        </main>
+
+        <div class="chat">
+            <h4>Chat</h4>
+            <div id="chatMessages"></div>
+        </div>
+
+        <script>
+            let posts = [
+                { id: 1, author: "Alice", content: "Hello KHML World!" },
+                { id: 2, author: "Bob", content: "Trying KHML for social feed." },
+                { id: 3, author: "Charlie", content: "Mini Facebook in KHML!" }
+            ];
+
+            let notifCount = 0;
+            let friendRequests = 0;
+            const main = document.querySelector('main');
+            const notifEl = document.getElementById('notifCount');
+            const friendReqEl = document.getElementById('friendReqCount');
+            const chatEl = document.getElementById('chatMessages');
+
+            function renderPosts() {
+                const feed = main.querySelectorAll('.post');
+                feed.forEach(p => p.remove()); 
+                posts.slice().reverse().forEach(post => {
+                    const div = document.createElement('div');
+                    div.className = 'post';
+                    div.innerHTML = `<h4>${post.author}</h4>
+                                     <p>${post.content}</p>
+                                     <button onclick="likePost(${post.id})">Like</button>
+                                     <button onclick="commentPost(${post.id})">Comment</button>`;
+                    main.appendChild(div);
+                });
+            }
+
+            function likePost(id) {
+                notifCount++;
+                notifEl.textContent = notifCount;
+                alert('You liked post #' + id);
+            }
+
+            function commentPost(id) {
+                const comment = prompt('Enter your comment:');
+                if(comment) {
+                    notifCount++;
+                    notifEl.textContent = notifCount;
+                    alert('Comment added to post #' + id);
+                }
+            }
+
+            function createPost() {
+                const author = document.getElementById('author').value.trim();
+                const content = document.getElementById('content').value.trim();
+                if (!author || !content) return alert('Fill both fields!');
+                const id = posts.length ? posts[posts.length-1].id + 1 : 1;
+                posts.push({ id, author, content });
+                document.getElementById('author').value = '';
+                document.getElementById('content').value = '';
+                renderPosts();
+            }
+
+            // Simulate chat messages
+            setInterval(() => {
+                const msg = document.createElement('div');
+                msg.className = 'message';
+                msg.textContent = 'New message from KHML Bot at ' + new Date().toLocaleTimeString();
+                chatEl.appendChild(msg);
+                chatEl.scrollTop = chatEl.scrollHeight;
+            }, 8000);
+
+            // Simulate friend requests
+            setInterval(() => {
+                friendRequests++;
+                friendReqEl.textContent = `(${friendRequests})`;
+            }, 12000);
+
+            renderPosts();
+        </script>
+    </body>
+</document>
