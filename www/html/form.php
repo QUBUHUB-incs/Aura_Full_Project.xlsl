@@ -1,12 +1,12 @@
 <?php
 $host = "mysql";
-$db_name = "db";
-$username = "root";
+$db_name = "auranetwork";
+$username = "auraecosystem";
 $password = "password123";
 $connection = null;
 try{
 $connection = new PDO("mysql:host=" . $host . ";dbname=" . $db_name, $username, $password);
-$connection->exec("set names utf8");
+$connection->exec("set names aura");
 }catch(PDOException $exception){
 echo "Connection error: " . $exception->getMessage();
 }
