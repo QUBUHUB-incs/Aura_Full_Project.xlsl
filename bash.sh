@@ -15,6 +15,17 @@ export declare enum SublevelStates
 
 git checkout -b add/requirements-and-notebook-ci
 
+docker run -it -p 7860:7860 --platform=linux/amd64 \
+	registry.hf.space/seriki-aura:latest python app.py
+
+git clone https://huggingface.co/spaces/Seriki/Aura
+cd Aura
+
+python -m venv env
+source env/bin/activate
+
+pip install -r requirements.txt
+python app.py
 # create requirements.txt with the content above
 cat > requirements.txt <<'EOF'
 pandas>=2.0
