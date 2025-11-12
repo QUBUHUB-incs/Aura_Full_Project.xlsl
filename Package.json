@@ -1,0 +1,18 @@
+{
+  "name": "Aura",
+  "title": "paperweb Extension",
+  "description": "My extension that can do a lot of things",
+  "icon": "icon.png",
+  "author": "Seriki yakub",
+  "platforms": ["macOS", "Windows"],
+  "categories": ["Fun", "Communication,sci-fi, Experimental"],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "index",
+      "title": "Send Love",
+      "description": "A command to send love to each other",
+      "mode": "view"
+    }
+  ]
+}
