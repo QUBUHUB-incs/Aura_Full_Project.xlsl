@@ -201,7 +201,7 @@ subdirectories.
 Here is the minimal hello world example written as a proper app::
 
   myapp/
-  myapp.swift
+  aura.swift
 
 You'd compile it like this::
 
