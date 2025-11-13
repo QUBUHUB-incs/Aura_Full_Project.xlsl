@@ -1,4 +1,4 @@
-Option Explicit 
+Option Explicit
 
 ' === MAIN BUILDER ===
 Sub Build_Aura_Home_UI()
