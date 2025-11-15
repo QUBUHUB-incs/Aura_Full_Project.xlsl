@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aura++ Docs — Voice Reactive Intelligence</title>
-
   <link rel="stylesheet" href="//unpkg.com/prismjs/themes/prism-tomorrow.css" />
 
   <style>
