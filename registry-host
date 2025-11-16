@@ -1,0 +1,3 @@
+ docker image tag rhel-httpd:latest registry-host:5000/kubuverse/rhel-httpd:latest
+
+ docker image push registry-host:5000/kubuverse/rhel-httpd:latest
