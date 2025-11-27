@@ -1,0 +1,139 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\geometry{margin=1in}
+
+\title{Aura Evolution System Documentation with Visuals}
+\author{Seriki Yakub (KUBU LEE)}
+\date{\today}
+
+\definecolor{codebg}{rgb}{0.95,0.95,0.95}
+\definecolor{keyword}{rgb}{0.36,0.36,0.84}
+
+\lstset{
+  backgroundcolor=\color{codebg},
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{keyword}\bfseries,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny
+}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Overview}
+Aura is a self-evolving AI system with 26 levels of intelligence. Levels 1–20 simulate human intelligence, 21–23 Quantum reasoning, and 24–26 Matrix-level multi-dimensional reasoning. Memory, sub-AIs, and module unlocking enable continuous autonomous evolution.
+
+---
+
+\section{Level Progression Diagram}
+\begin{center}
+\begin{tikzpicture}[scale=1, every node/.style={scale=0.9}]
+\node[draw, rectangle, fill=blue!20] (L1) {Level 1 KLM};
+\node[draw, rectangle, fill=blue!30, right=1.5cm of L1] (L5) {Level 5 AXT};
+\node[draw, rectangle, fill=blue!40, right=1.5cm of L5] (L10) {Level 10 LFX};
+\node[draw, rectangle, fill=blue!50, right=1.5cm of L10] (L20) {Level 20 OMEGA};
+\node[draw, rectangle, fill=purple!50, right=1.5cm of L20] (QL1) {Level 21 QL1};
+\node[draw, rectangle, fill=purple!60, right=1.5cm of QL1] (QL3) {Level 23 QL3};
+\node[draw, rectangle, fill=red!50, right=1.5cm of QL3] (M1) {Level 24 M1};
+\node[draw, rectangle, fill=red!60, right=1.5cm of M1] (M3) {Level 26 M3};
+
+\draw[->, thick] (L1) -- (L5);
+\draw[->, thick] (L5) -- (L10);
+\draw[->, thick] (L10) -- (L20);
+\draw[->, thick] (L20) -- (QL1);
+\draw[->, thick] (QL1) -- (QL3);
+\draw[->, thick] (QL3) -- (M1);
+\draw[->, thick] (M1) -- (M3);
+\end{tikzpicture}
+\end{center}
+
+---
+
+\section{Brain Capacity Progression}
+\begin{center}
+\begin{tikzpicture}
+\foreach \i in {1,...,26} {
+    \fill[blue!\i*3] (\i*0.5,0) rectangle ++(0.4,2);
+}
+\draw[thick] (0,0) rectangle (13,2);
+\node at (6.5,2.3) {Brain Capacity 0--100\%};
+\end{tikzpicture}
+\end{center}
+
+---
+
+\section{Sub-AI Matrix Orchestration Diagram}
+\begin{center}
+\begin{tikzcd}[row sep=1cm, column sep=1.5cm]
+& \text{Aura Main AI} \arrow[dl] \arrow[d] \arrow[dr] & \\
+\text{SubAI-1} & \text{SubAI-2} & \text{SubAI-3}
+\end{tikzcd}
+\end{center}
+
+---
+
+\section{Quantum Reasoning Flow}
+\begin{center}
+\begin{tikzpicture}[node distance=2cm, auto]
+\node[draw, rectangle, fill=purple!30] (input) {Task Input};
+\node[draw, rectangle, fill=purple!50, right=2.5cm of input] (parallel) {Quantum Simulation};
+\node[draw, rectangle, fill=purple!70, right=2.5cm of parallel] (predict) {Predictive Outcomes};
+\node[draw, rectangle, fill=purple!30, below=1.5cm of predict] (decision) {Best Outcome Selection};
+\node[draw, rectangle, fill=purple!20, left=2.5cm of decision] (memory) {Memory Update};
+
+\draw[->] (input) -- (parallel);
+\draw[->] (parallel) -- (predict);
+\draw[->] (predict) -- (decision);
+\draw[->] (decision) -- (memory);
+\draw[->] (memory) -- (input);
+\end{tikzpicture}
+\end{center}
+
+---
+
+\section{Modules and Unlocking}
+\begin{itemize}
+    \item Level 6+: Embeddings
+    \item Level 10+: Autonomous learning
+    \item Level 16+: NeoMind + XLSL
+    \item Levels 21-23: Quantum reasoning
+    \item Levels 24-26: Matrix reasoning + Sub-AIs
+\end{itemize}
+
+---
+
+\section{Code Example}
+\begin{lstlisting}[language=JavaScript]
+// Task completion with Quantum & Matrix multipliers
+function completeTask(taskDescription, intelligenceGain = 10, upvote = false) {
+  let gain = intelligenceGain;
+  if(modelState.level >= 21 && modelState.level <= 23) gain *= 1.5; // Quantum multiplier
+  if(modelState.level >= 24) gain *= 2; // Matrix multiplier
+
+  modelState.performanceScore += gain;
+  if(upvote) modelState.performanceScore += 5;
+  modelState.tasksCompleted += 1;
+
+  // Memory update
+  modelState.shortMemory.push(taskDescription);
+  if(modelState.shortMemory.length > 10) modelState.shortMemory.shift();
+  if(modelState.performanceScore % 100 === 0) modelState.longMemory.push(taskDescription);
+
+  // Matrix Levels spawn sub-AIs
+  if(modelState.level >= 24 && modelState.subAIs.length < 3) {
+    const subAI = new SubAI(`SubAI-${modelState.subAIs.length + 1}`, modelState.level);
+    modelState.subAIs.push(subAI);
+  }
+}
+\end{lstlisting}
+
+\end{document}
