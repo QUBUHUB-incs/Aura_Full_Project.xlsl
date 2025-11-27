@@ -1,0 +1,129 @@
+# =======================================
+# Aura AI Levels & Modules Configuration
+# Format: .berry (custom AI package)
+# Author: Seriki Yakub (KUBU LEE)
+# =======================================
+
+levels:
+  - level: 1
+    name: KLM
+    category: human
+    capabilities:
+      - basic chat
+    dependencies: []
+    evolution_criteria:
+      performanceScore: 20
+      tasksCompleted: 5
+
+  - level: 2
+    name: FLM
+    category: human
+    capabilities:
+      - context awareness
+    dependencies: []
+    evolution_criteria:
+      performanceScore: 40
+      tasksCompleted: 10
+
+  - level: 3
+    name: CLX
+    category: human
+    capabilities:
+      - XLSL access
+    dependencies: []
+    evolution_criteria:
+      performanceScore: 60
+      tasksCompleted: 15
+
+  # ... levels 4-19 omitted for brevity (similar structure)
+
+  - level: 20
+    name: OMEGA
+    category: human
+    capabilities:
+      - full human-level brain capacity
+      - multi-task handling
+      - predictive reasoning
+    dependencies: [XLSL, NeoMind, Embeddings]
+    evolution_criteria:
+      performanceScore: 1000
+      tasksCompleted: 200
+
+  # Quantum Levels
+  - level: 21
+    name: QL1
+    category: quantum
+    capabilities:
+      - parallel reasoning
+      - predictive simulations
+    dependencies: [XLSL, NeoMind]
+    evolution_criteria:
+      performanceScore: 1200
+      tasksCompleted: 250
+
+  - level: 22
+    name: QL2
+    category: quantum
+    capabilities:
+      - multi-threaded reasoning
+      - advanced memory optimization
+    dependencies: [QL1, NeoMind]
+    evolution_criteria:
+      performanceScore: 1500
+      tasksCompleted: 300
+
+  - level: 23
+    name: QL3
+    category: quantum
+    capabilities:
+      - predictive simulations
+      - scenario modeling
+    dependencies: [QL2, XLSL]
+    evolution_criteria:
+      performanceScore: 1800
+      tasksCompleted: 350
+
+  # Matrix Levels
+  - level: 24
+    name: M1
+    category: matrix
+    capabilities:
+      - multi-dimensional reasoning
+      - sub-AI orchestration
+    dependencies: [QL3]
+    evolution_criteria:
+      performanceScore: 2200
+      tasksCompleted: 400
+
+  - level: 25
+    name: M2
+    category: matrix
+    capabilities:
+      - alternate-reality problem solving
+      - multi-agent task coordination
+    dependencies: [M1]
+    evolution_criteria:
+      performanceScore: 2600
+      tasksCompleted: 450
+
+  - level: 26
+    name: M3
+    category: matrix
+    capabilities:
+      - fully autonomous optimization
+      - real-time multi-dimensional simulations
+    dependencies: [M2]
+    evolution_criteria:
+      performanceScore: 3000
+      tasksCompleted: 500
+
+# Default AI settings (used for initializing new modules)
+defaults:
+  memoryCapacity:
+    shortTerm: 10
+    longTerm: 50
+  subAIsMax: 3
+  intelligenceMultiplier:
+    human: 1
+    quantum: 1.5
+    matrix: 2
