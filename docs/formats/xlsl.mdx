@@ -1,3 +1,10 @@
+🌌 FORMATS SECTION (XLSL, NIX, PAPERWEB)
+
+Clean, complete, professional, but still carrying that crisp Aura energy.
+
+
+📄 /docs/formats/xlsl.mdx
+
 # XLSL Format
 
 XLSL (eXtended Logic & Science Language) is Aura’s core computation format.  
@@ -11,7 +18,7 @@ It blends scripting, mathematics, and structured pipelines into a single reprodu
 
 ---
 
-## Basic Structure
+# Basic Structure
 
 ```xlsl
 task ComputeEnergy {
@@ -22,3 +29,356 @@ task ComputeEnergy {
         return mass * c * c
     }
 }
+
+```
+Each XLSL file can define:
+	•	task → A runnable unit
+	•	dataset → Load/transform data
+	•	model → Train/evaluate ML models
+	•	pipeline → Chain tasks
+
+⸻
+
+    ```mdx
+Running a Task
+
+aura run compute-energy --mass 0.5
+
+Output:
+
+4.493775893e16 joules
+
+⸻
+    
+    ```xlsl
+Pipelines Example
+
+pipeline ResearchFlow {
+    step load -> preprocess -> train -> evaluate
+}
+
+Aura maps it into a full dependency graph.
+```
+⸻
+    ```cpp
+XLSL + AI Mode
+
+ai Reason {
+    prompt """
+    Summarize the dataset and propose a research hypothesis.
+    """
+}
+```
+Aura’s runtime handles context, caching, and reproducibility.
+
+⸻
+
+## XLSL Philosophy
+
+A format built for:
+	•	Research
+	•	Engineering
+	•	Reproducibility
+	•	Scientific clarity
+
+No magic, no mess — just precision.
+```
+---
+
+# 📄 `/docs/formats/nix.mdx`
+    ```md
+# NIX Format
+
+NIX powers Aura’s reproducible environments.  
+Think Dockerfiles — but scientific, simple, cross-platform, and integrated.
+```
+## Example
+
+    ```nix
+env PhysicsLab {
+    python = "3.10"
+    pip = [
+        "numpy"
+        "scipy"
+        "matplotlib"
+    ]
+
+    system = {
+        cuda = true
+        memory = "8GB"
+    }
+}
+
+Run:
+
+aura env build physics-lab
+
+```
+⸻
+
+Features
+	•	Full dependency locking
+	•	CPU/GPU awareness
+	•	Cross-platform consistency
+	•	One file = entire environment
+
+Works everywhere Aura runs.
+```
+---
+
+# 📄 `/docs/formats/paperweb.mdx`
+    ```md
+# Paperweb Format
+
+Paperweb turns scientific writing into executable documents —  
+Markdown + citations + embedded computation.
+```
+## Example
+
+    ```paperweb
+# Energy Simulation
+
+Using the XLSL task `ComputeEnergy`:
+
+    ```runxlsl
+task: ComputeEnergy
+mass: 0.1
+
+The system outputs the energy, and the result renders directly in the PDF.
+
+```
+
+Features
+	•	LaTeX-quality PDFs
+	•	Embedded XLSL/AI/plots
+	•	Citation manager
+	•	Auto-generated references
+
+⸻
+
+Export
+
+aura paper build research.paperweb
+
+Outputs:
+
+outputs/reports/research.pdf
+
+Aura = research without pain.
+
+---
+
+# ⚙️ **TOOLS SECTION (CLI, COMPILER, RUNNER, LAB)**
+
+---
+
+# 📄 `/docs/tools/aura-cli.mdx`
+```md
+# Aura CLI
+
+The CLI is your command center.
+
+## Common Commands
+
+```bash
+aura run <task>
+aura env build <env>
+aura paper build <file>
+aura compile <xlslfile>
+
+Explore tasks
+
+aura list tasks
+
+Explore pipelines
+
+aura list pipelines
+
+Fast, clean, predictable.
+
+---
+
+# 📄 `/docs/tools/aura-compiler.mdx`
+```md
+# Aura Compiler
+
+Compiles XLSL → runnable execution graph.
+
+## How it works
+1. Parse XLSL  
+2. Validate inputs  
+3. Build dependency graph  
+4. Allocate compute resources  
+5. Produce optimized plan  
+
+View compiled output:
+
+```bash
+aura compile research.xlsl
+
+---
+```
+# 📄 `/docs/tools/aura-runner.mdx`
+    ```md
+# Aura Runner
+
+The runner executes tasks, AI calls, simulations, pipelines, and hybrid jobs.
+
+## Modes
+- CPU mode  
+- GPU accelerated  
+- Distributed  
+- Offline reproducible  
+- AI sandbox  
+```
+## Run a pipeline
+
+    ```bash
+aura run pipeline research-flow
+
+---
+```
+# 📄 `/docs/tools/aura-lab.mdx`
+    ```md
+# Aura Lab
+
+Aura Lab is the interactive notebook + LLM-assisted research environment.
+
+## Features
+- Jupyter-like cells  
+- XLSL execution  
+- Paperweb integration  
+- AI hypotheses generation  
+- Rich plotting  
+```
+Launch:
+
+    ```bash
+aura lab
+
+---
+
+# 🌐 **ECOSYSTEM SECTION**
+
+---
+```
+# 📄 `/docs/ecosystem/overview.mdx`
+    ```md
+# Aura Ecosystem Overview
+
+Aura is a unified OS for science, engineering, AI, and quantum workflows.
+
+It includes:
+
+- XLSL computation language  
+- NIX environment format  
+- Paperweb scientific writing  
+- CLI toolchain  
+- AI reasoning modules  
+- Quantum simulation tools  
+- STEM pipelines  
+
+A full stack for modern research.
+
+
+⸻
+```
+📄 /docs/ecosystem/modules.mdx
+
+# Modules
+
+Core modules include:
+
+- `aura.core`
+- `aura.ai`
+- `aura.quantum`
+- `aura.sim`
+- `aura.stem`
+- `aura.env`
+- `aura.paper`
+
+Each module is isolated, testable, and composable.
+
+
+⸻
+```
+📄 /docs/ecosystem/pipelines.mdx
+
+# Pipelines
+
+A pipeline links multiple XLSL tasks into a complete research workflow.
+
+## Visual Example
+
+load → clean → normalize → train → evaluate → report
+
+Aura automatically optimizes everything.
+
+
+⸻
+
+📄 /docs/ecosystem/quantum.mdx
+
+# Quantum Computing Tools
+
+Aura supports:
+
+- Qubit simulation  
+- Gate modeling  
+- Quantum XLSL tasks  
+- Bloch rendering  
+- Hybrid classical–quantum workflows  
+
+Example:
+
+```xlsl
+quantum BellPair { qubits = 2 }
+
+---
+```
+# 📄 `/docs/ecosystem/stem.mdx`
+```md
+# STEM Toolkit
+
+Includes built-in support for:
+
+- Physics simulations  
+- Numerical methods  
+- Linear algebra  
+- Differential solvers  
+- Geometry  
+- Biology modeling  
+- Chemistry workflows  
+
+Everything is optimized through XLSL pipelines.
+```
+
+⸻
+
+🧩 API SECTION
+
+⸻
+```
+📄 /docs/api/index.mdx
+
+# Aura API Reference
+
+This section documents the programmatic interfaces for:
+
+- XLSL Runtime API
+- AI Engine API
+- Environment Manager API
+- Paperweb Renderer API
+- Plugin System
+
+## Example: Running an XLSL task in JS
+
+```ts
+import { Aura } from "aura-xlsl";
+
+const lab = new Aura();
+await lab.run("ComputeEnergy", { mass: 0.2 });
+
+Clean, modern, typed.
+```
+---
