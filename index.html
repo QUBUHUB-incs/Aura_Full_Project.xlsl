@@ -1,0 +1,976 @@
+<html lang="en"><head>
+  <title>Aura XLSL Paperweb</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100 antialiased flex flex-col">
+  <div class="flex-1 flex flex-col bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900">
+    <!-- Top nav -->
+    <header class="w-full border-b border-slate-800/80">
+      <div class="max-w-6xl mx-auto flex items-center justify-between gap-6 py-4 px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3">
+          <div class="h-8 w-8 rounded-xl bg-gradient-to-br from-cyan-400 via-sky-400 to-violet-500 flex items-center justify-center shadow-lg shadow-cyan-500/30">
+            <span class="text-sm font-semibold tracking-tight text-slate-950">A</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-base font-semibold tracking-tight leading-none">Aura XLSL</span>
+            <span class="text-xs font-medium text-slate-400 leading-tight">Paperweb Engine</span>
+          </div>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+          <a href="#overview" class="hover:text-slate-50 transition-colors">Overview</a>
+          <a href="#capabilities" class="hover:text-slate-50 transition-colors">Capabilities</a>
+          <a href="#architecture" class="hover:text-slate-50 transition-colors">Architecture</a>
+          <a href="#playground" class="hover:text-slate-50 transition-colors">Playground</a>
+          <a href="#repo" class="hover:text-slate-50 transition-colors">Repository</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="https://github.com/Web4application/Aura_Full_Project.xlsl.git" target="_blank" class="hidden sm:inline-flex items-center gap-2 rounded-lg border border-slate-700/80 bg-slate-900/70 hover:bg-slate-800/80 px-3 py-2 text-xs font-semibold text-slate-100">
+            <span>Open Repo</span>
+            <i data-lucide="github" class="w-4 h-4"></i>
+          </a>
+          <button class="inline-flex items-center gap-2 rounded-lg bg-cyan-400/90 hover:bg-cyan-300 text-slate-950 text-xs font-semibold px-3 py-2 shadow-lg shadow-cyan-500/40">
+            <i data-lucide="rocket" class="w-4 h-4"></i>
+            <span>Launch Aura</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <main class="flex-1">
+      <section id="overview" class="border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20 grid lg:grid-cols-[minmax(0,1.2fr),minmax(0,1fr)] gap-10 items-center">
+          <div class="space-y-6">
+            <div class="inline-flex items-center gap-2 rounded-full border border-slate-700/90 bg-slate-900/80 px-3 py-1">
+              <span class="h-1.5 w-1.5 rounded-full bg-lime-400"></span>
+              <span class="text-xs font-medium text-slate-300">Aura_Full_Project.xlsl • Paperweb runtime</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-50">
+              A full-stack <span class="text-cyan-300">XLSL Paperweb</span> for programmable documents
+            </h1>
+            <p class="text-base sm:text-lg font-medium text-slate-300/95 max-w-2xl">
+              Aura turns spreadsheets into live, composable applications. The XLSL Paperweb engine
+              syncs formulas, state, and UI so your workbook becomes a responsive web surface—
+              without leaving the spreadsheet model.
+            </p>
+
+            <div class="grid sm:grid-cols-3 gap-4 pt-2">
+              <div class="rounded-xl border border-slate-800/80 bg-slate-900/70 p-3 space-y-1.5">
+                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Runtime</span>
+                <p class="text-sm font-medium text-slate-100">Live XLSL evaluation with reactive cells &amp; streaming recalculation.</p>
+              </div>
+              <div class="rounded-xl border border-slate-800/80 bg-slate-900/70 p-3 space-y-1.5">
+                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Paperweb</span>
+                <p class="text-sm font-medium text-slate-100">Render sheets as interactive pages, components, and workflows.</p>
+              </div>
+              <div class="rounded-xl border border-slate-800/80 bg-slate-900/70 p-3 space-y-1.5">
+                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Extensibility</span>
+                <p class="text-sm font-medium text-slate-100">Custom functions, data connectors, and integration hooks.</p>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <button class="inline-flex items-center gap-2 rounded-lg bg-slate-50 text-slate-950 hover:bg-slate-100 text-xs sm:text-sm font-semibold px-4 py-2.5 shadow-lg shadow-slate-50/20">
+                <i data-lucide="play" class="w-4 h-4"></i>
+                <span>Try Paperweb demo</span>
+              </button>
+              <button class="inline-flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-950/80 hover:bg-slate-900/80 text-xs sm:text-sm font-semibold px-4 py-2.5 text-slate-100">
+                <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
+                <span>Import workbook</span>
+              </button>
+              <span class="text-xs sm:text-sm font-medium text-slate-400">
+                Built from <span class="text-slate-200 font-semibold">Aura_Full_Project.xlsl</span> reference implementation.
+              </span>
+            </div>
+          </div>
+
+          <!-- Right: "Paperweb" preview -->
+          <div class="relative">
+            <div class="absolute -inset-6 bg-gradient-to-tr from-cyan-500/20 via-sky-400/5 to-violet-500/10 blur-3xl opacity-70 pointer-events-none"></div>
+            <div class="relative rounded-2xl border border-slate-700/80 bg-slate-950/90 shadow-2xl shadow-cyan-500/20 overflow-hidden">
+              <!-- Window header -->
+              <div class="flex items-center justify-between border-b border-slate-800/80 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 px-4 py-2.5">
+                <div class="flex items-center gap-2">
+                  <div class="flex gap-1.5">
+                    <span class="h-2.5 w-2.5 rounded-full bg-red-500/80"></span>
+                    <span class="h-2.5 w-2.5 rounded-full bg-amber-400/80"></span>
+                    <span class="h-2.5 w-2.5 rounded-full bg-lime-400/80"></span>
+                  </div>
+                  <span class="text-xs font-medium text-slate-400">
+                    Aura Paperweb · dashboard.xlsl
+                  </span>
+                </div>
+                <div class="flex items-center gap-2 text-slate-400">
+                  <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+                  <span class="text-[0.65rem] font-medium text-emerald-400">Synced</span>
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-[minmax(0,0.95fr),minmax(0,1.05fr)]">
+                <!-- Left: Sheet layout -->
+                <div class="border-r border-slate-800/70 bg-slate-950/90">
+                  <div class="flex items-center justify-between px-3 py-2 border-b border-slate-800/80">
+                    <div class="flex items-center gap-2 text-xs text-slate-300">
+                      <i data-lucide="grid-3x3" class="w-3.5 h-3.5"></i>
+                      <span class="font-semibold">Workbook</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 text-[0.65rem] text-slate-400">
+                      <span class="inline-flex items-center gap-1 rounded-full border border-slate-700/80 bg-slate-900/80 px-2 py-0.5">
+                        <i data-lucide="zap" class="w-3 h-3 text-cyan-300"></i>
+                        <span class="font-medium">Reactive</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Fake grid header -->
+                  <div class="flex border-b border-slate-800/80">
+                    <div class="w-8 bg-slate-950/90"></div>
+                    <div class="flex-1 grid grid-cols-5 text-[0.65rem] text-slate-400 bg-slate-900/70">
+                      <div class="border-l border-slate-800/80 flex items-center justify-center h-6">A</div>
+                      <div class="border-l border-slate-800/80 flex items-center justify-center h-6">B</div>
+                      <div class="border-l border-slate-800/80 flex items-center justify-center h-6">C</div>
+                      <div class="border-l border-slate-800/80 flex items-center justify-center h-6">D</div>
+                      <div class="border-l border-slate-800/80 flex items-center justify-center h-6">E</div>
+                    </div>
+                  </div>
+
+                  <!-- Fake grid body -->
+                  <div class="h-52 sm:h-56 lg:h-64 overflow-hidden bg-slate-950">
+                    <div class="flex">
+                      <div class="w-8 bg-slate-950/90 text-[0.65rem] text-slate-500">
+                        <div class="h-6 flex items-center justify-center border-b border-slate-800/80">1</div>
+                        <div class="h-6 flex items-center justify-center border-b border-slate-800/80">2</div>
+                        <div class="h-6 flex items-center justify-center border-b border-slate-800/80">3</div>
+                        <div class="h-6 flex items-center justify-center border-b border-slate-800/80">4</div>
+                        <div class="h-6 flex items-center justify-center border-b border-slate-800/80">5</div>
+                        <div class="h-6 flex items-center justify-center border-b border-slate-800/80">6</div>
+                        <div class="h-6 flex items-center justify-center border-b border-slate-800/80">7</div>
+                      </div>
+                      <div class="flex-1 grid grid-cols-5 text-[0.65rem]">
+                        <!-- row 1 -->
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/90 flex items-center px-1 text-cyan-200 font-medium">
+                          =SUM(B2:B7)
+                        </div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/90 text-emerald-300 font-medium flex items-center justify-end pr-1">
+                          12,430
+                        </div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/90 flex items-center px-1 text-slate-300">
+                          Total MRR
+                        </div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/90 flex items-center px-1 text-slate-500">
+                          Paperweb metric
+                        </div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/90 flex items-center justify-center text-lime-400 font-semibold">
+                          LIVE
+                        </div>
+
+                        <!-- row 2+ data cells -->
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/90 flex items-center px-1 text-slate-300">
+                          users_active
+                        </div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/90 flex items-center justify-end pr-1 text-slate-200">
+                          1,930
+                        </div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/90 flex items-center px-1 text-sky-300">
+                          =API.GET("active_users")
+                        </div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/90 text-slate-400 flex items-center px-1">
+                          streaming
+                        </div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/90 text-emerald-300 flex items-center justify-center">
+                          ok
+                        </div>
+
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/90 text-slate-300 flex items-center px-1">
+                          churn_rate
+                        </div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/90 text-slate-200 flex items-center justify-end pr-1">
+                          3.2%
+                        </div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/90 text-sky-300 flex items-center px-1">
+                          =AURA.CHURN(users)
+                        </div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/90 text-slate-400 flex items-center px-1">
+                          derived
+                        </div>
+                        <div class="border-b border-l border-slate-800/80 text-amber-300 flex items-center justify-center bg-slate-950/90">
+                          beta
+                        </div>
+
+                        <!-- padding rows -->
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/70"></div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/70"></div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/70"></div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/70"></div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/70"></div>
+
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/70"></div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/70"></div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/70"></div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/70"></div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/70"></div>
+
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/70"></div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/70"></div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/70"></div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/70"></div>
+                        <div class="border-b border-l border-slate-800/80 bg-slate-950/70"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Formula bar -->
+                  <div class="border-t border-slate-800/80 bg-slate-950/95 px-3 py-2 flex items-center gap-2">
+                    <span class="text-[0.65rem] font-medium text-slate-400">ƒx</span>
+                    <div class="flex-1 rounded-md border border-slate-800/80 bg-slate-950/90 px-2 py-1.5">
+                      <p class="text-[0.65rem] text-cyan-200 font-medium truncate">
+                        =AURA.PAPERWEB("dashboard", A2:E7, layout: "cards")
+                      </p>
+                    </div>
+                    <button class="inline-flex items-center justify-center rounded-md border border-slate-700/80 bg-slate-900/80 px-2 py-1">
+                      <i data-lucide="play-circle" class="w-3.5 h-3.5 text-emerald-300"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Right: Paperweb view -->
+                <div class="bg-slate-950/80">
+                  <div class="flex items-center justify-between px-3 py-2 border-b border-slate-800/80">
+                    <div class="flex items-center gap-2 text-xs text-slate-300">
+                      <i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i>
+                      <span class="font-semibold">Paperweb surface</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-[0.65rem] text-slate-400">
+                      <span class="inline-flex items-center gap-1 rounded-full border border-slate-700/80 bg-slate-900/80 px-2 py-0.5">
+                        <i data-lucide="refresh-cw" class="w-3 h-3 text-sky-300"></i>
+                        live bind
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="p-3 sm:p-4 space-y-3">
+                    <div class="grid grid-cols-2 gap-3">
+                      <div class="rounded-xl border border-slate-800/80 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-3 flex flex-col gap-2">
+                        <div class="flex items-center justify-between">
+                          <div class="flex flex-col">
+                            <span class="text-[0.7rem] font-semibold text-slate-400 uppercase tracking-wide">Active users</span>
+                            <span class="text-lg font-semibold tracking-tight text-slate-50">1,930</span>
+                          </div>
+                          <span class="inline-flex items-center gap-1 rounded-full bg-emerald-400/10 border border-emerald-400/40 px-2 py-0.5">
+                            <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-300"></i>
+                            <span class="text-[0.65rem] font-medium text-emerald-200">+8.3%</span>
+                          </span>
+                        </div>
+                        <div class="h-10 rounded-md bg-gradient-to-r from-sky-500/20 via-cyan-400/20 to-emerald-400/20 border border-slate-800/80"></div>
+                      </div>
+
+                      <div class="rounded-xl border border-slate-800/80 bg-slate-950/90 p-3 flex flex-col gap-2">
+                        <div class="flex items-center justify-between">
+                          <div class="flex flex-col">
+                            <span class="text-[0.7rem] font-semibold text-slate-400 uppercase tracking-wide">Churn rate</span>
+                            <span class="text-lg font-semibold tracking-tight text-slate-50">3.2%</span>
+                          </div>
+                          <span class="inline-flex items-center gap-1 rounded-full bg-amber-400/10 border border-amber-400/40 px-2 py-0.5">
+                            <i data-lucide="activity" class="w-3.5 h-3.5 text-amber-300"></i>
+                            <span class="text-[0.65rem] font-medium text-amber-200">watch</span>
+                          </span>
+                        </div>
+                        <div class="h-10 flex items-end gap-0.5">
+                          <div class="flex-1 bg-emerald-400/30 rounded-sm h-3"></div>
+                          <div class="flex-1 bg-emerald-400/40 rounded-sm h-4"></div>
+                          <div class="flex-1 bg-amber-400/70 rounded-sm h-6"></div>
+                          <div class="flex-1 bg-emerald-400/40 rounded-sm h-4"></div>
+                          <div class="flex-1 bg-emerald-400/30 rounded-sm h-3"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- MRR Card -->
+                    <div class="rounded-xl border border-slate-800/80 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 p-3 sm:p-4 flex flex-col gap-3">
+                      <div class="flex items-center justify-between gap-2">
+                        <div class="flex flex-col">
+                          <span class="text-[0.7rem] font-semibold text-slate-400 uppercase tracking-wide">
+                            Total MRR
+                          </span>
+                          <span class="text-xl sm:text-2xl font-semibold tracking-tight text-slate-50">
+                            $12,430
+                          </span>
+                        </div>
+                        <div class="flex flex-col items-end gap-1">
+                          <span class="inline-flex items-center gap-1 rounded-full bg-cyan-400/10 border border-cyan-400/40 px-2 py-0.5">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyan-300"></i>
+                            <span class="text-[0.65rem] font-medium text-cyan-100">XLSL bound</span>
+                          </span>
+                          <span class="text-[0.65rem] font-medium text-slate-400">
+                            =SUM(B2:B7)
+                          </span>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2 text-[0.7rem] text-slate-300">
+                          <i data-lucide="link" class="w-3.5 h-3.5 text-sky-300"></i>
+                          <span class="font-medium">Streaming from workbook</span>
+                        </div>
+                        <button class="inline-flex items-center gap-1 rounded-md border border-slate-700/80 bg-slate-900/80 px-2.5 py-1 text-[0.7rem] font-medium text-slate-200">
+                          <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+                          Edit in sheet
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Bind inspector -->
+                    <div class="rounded-xl border border-slate-800/80 bg-slate-950/90 p-3 flex flex-col gap-2">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2 text-xs text-slate-300">
+                          <i data-lucide="inspect" class="w-3.5 h-3.5"></i>
+                          <span class="font-semibold">Binding inspector</span>
+                        </div>
+                        <span class="text-[0.65rem] text-slate-400">Paperweb · v0.1</span>
+                      </div>
+                      <div class="text-[0.7rem] font-medium text-slate-300 bg-slate-950 border border-slate-800/80 rounded-md px-2 py-1.5">
+                        {"source": "dashboard!A1:E7", "mode": "reactive", "layout": "cards", "hydrate": true}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Capabilities -->
+      <section id="capabilities" class="border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-8">
+          <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-50">Aura XLSL capabilities</h2>
+              <p class="text-base font-medium text-slate-300 max-w-2xl mt-2">
+                The Aura_Full_Project.xlsl repo ships a full reference implementation of the XLSL runtime,
+                reactive dependency engine, and Paperweb rendering layer.
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-400">
+              <span class="inline-flex items-center gap-1 rounded-full border border-slate-700/80 bg-slate-900/80 px-2.5 py-1">
+                <i data-lucide="code-2" class="w-3.5 h-3.5 text-sky-300"></i>
+                <span>Typesafe runtime</span>
+              </span>
+              <span class="inline-flex items-center gap-1 rounded-full border border-slate-700/80 bg-slate-900/80 px-2.5 py-1">
+                <i data-lucide="database" class="w-3.5 h-3.5 text-cyan-300"></i>
+                <span>Data connectors</span>
+              </span>
+              <span class="inline-flex items-center gap-1 rounded-full border border-slate-700/80 bg-slate-900/80 px-2.5 py-1">
+                <i data-lucide="layers" class="w-3.5 h-3.5 text-violet-300"></i>
+                <span>Paperweb UI</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-5">
+            <!-- Runtime -->
+            <div class="rounded-2xl border border-slate-800/80 bg-slate-950/90 p-4 flex flex-col gap-3">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="h-7 w-7 rounded-xl bg-cyan-500/15 border border-cyan-400/50 flex items-center justify-center">
+                    <i data-lucide="cpu" class="w-3.5 h-3.5 text-cyan-300"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-sm font-semibold tracking-tight text-slate-50">XLSL Evaluation Core</h3>
+                    <p class="text-xs font-medium text-slate-400">Formula engine &amp; dependency graph</p>
+                  </div>
+                </div>
+              </div>
+              <p class="text-sm font-medium text-slate-300">
+                Parses XLSL sheets, builds a dependency graph, and keeps cells up to date as inputs,
+                external data, and user interactions change.
+              </p>
+              <ul class="space-y-1.5 text-xs font-medium text-slate-300">
+                <li class="flex items-center gap-2">
+                  <span class="h-1 w-1 rounded-full bg-cyan-300"></span>
+                  Incremental recomputation with precise dirty tracking.
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1 w-1 rounded-full bg-cyan-300"></span>
+                  Support for custom functions and external evaluators.
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1 w-1 rounded-full bg-cyan-300"></span>
+                  Serialization / hydration for server &amp; edge runtimes.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Paperweb -->
+            <div class="rounded-2xl border border-slate-800/80 bg-slate-950/90 p-4 flex flex-col gap-3">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="h-7 w-7 rounded-xl bg-violet-500/15 border border-violet-400/50 flex items-center justify-center">
+                    <i data-lucide="layout-template" class="w-3.5 h-3.5 text-violet-300"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-sm font-semibold tracking-tight text-slate-50">Paperweb Rendering</h3>
+                    <p class="text-xs font-medium text-slate-400">Sheets as layouts &amp; components</p>
+                  </div>
+                </div>
+              </div>
+              <p class="text-sm font-medium text-slate-300">
+                Declaratively map ranges, named cells, and tables into web components, dashboards,
+                and flows while preserving formula semantics.
+              </p>
+              <ul class="space-y-1.5 text-xs font-medium text-slate-300">
+                <li class="flex items-center gap-2">
+                  <span class="h-1 w-1 rounded-full bg-violet-300"></span>
+                  Bind cell values, ranges, and formulas directly into UI props.
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1 w-1 rounded-full bg-violet-300"></span>
+                  Bi-directional sync between controls and sheet state.
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1 w-1 rounded-full bg-violet-300"></span>
+                  Layout presets: boards, dashboards, tables, forms.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Integrations -->
+            <div class="rounded-2xl border border-slate-800/80 bg-slate-950/90 p-4 flex flex-col gap-3">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="h-7 w-7 rounded-xl bg-emerald-500/15 border border-emerald-400/50 flex items-center justify-center">
+                    <i data-lucide="plug" class="w-3.5 h-3.5 text-emerald-300"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-sm font-semibold tracking-tight text-slate-50">Connectors &amp; APIs</h3>
+                    <p class="text-xs font-medium text-slate-400">Bring in live data &amp; services</p>
+                  </div>
+                </div>
+              </div>
+              <p class="text-sm font-medium text-slate-300">
+                Wire Aura to databases, HTTP APIs, and event streams. Expose XLSL sheets as
+                programmable surfaces within your stack.
+              </p>
+              <ul class="space-y-1.5 text-xs font-medium text-slate-300">
+                <li class="flex items-center gap-2">
+                  <span class="h-1 w-1 rounded-full bg-emerald-300"></span>
+                  Data functions (e.g. AURA.GET, AURA.POST, AURA.QUERY).
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1 w-1 rounded-full bg-emerald-300"></span>
+                  Webhooks, streaming updates, and event triggers.
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1 w-1 rounded-full bg-emerald-300"></span>
+                  Secure config and environment-aware bindings.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Architecture -->
+      <section id="architecture" class="border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-8">
+          <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-50">Architecture map</h2>
+              <p class="text-base font-medium text-slate-300 max-w-2xl mt-2">
+                Aura XLSL is split into composable layers so you can embed just the runtime, only the
+                Paperweb renderer, or the complete stack from sheet to UI.
+              </p>
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-slate-800/80 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-4 sm:p-6 space-y-4">
+            <div class="grid md:grid-cols-[minmax(0,1.3fr),minmax(0,1fr)] gap-5 items-start">
+              <!-- Diagram -->
+              <div class="space-y-3">
+                <div class="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+                  Layered pipeline
+                </div>
+
+                <div class="space-y-3">
+                  <!-- Client -->
+                  <div class="relative rounded-xl border border-slate-800/80 bg-slate-950/90 p-3">
+                    <div class="flex items-center justify-between">
+                      <div class="flex items-center gap-2">
+                        <i data-lucide="monitor" class="w-4 h-4 text-sky-300"></i>
+                        <span class="text-sm font-semibold tracking-tight text-slate-50">Paperweb client</span>
+                      </div>
+                      <span class="text-[0.65rem] text-slate-400">browser / app shell</span>
+                    </div>
+                    <p class="mt-1.5 text-xs font-medium text-slate-300">
+                      Renders bound components, dashboards, and flows on top of the XLSL runtime.
+                    </p>
+                    <div class="mt-2 grid grid-cols-3 gap-2 text-[0.65rem] text-slate-300">
+                      <div class="rounded-md border border-slate-800/80 bg-slate-950/90 px-2 py-1 flex items-center gap-1">
+                        <span class="h-1 w-1 rounded-full bg-sky-300"></span>
+                        UI bindings
+                      </div>
+                      <div class="rounded-md border border-slate-800/80 bg-slate-950/90 px-2 py-1 flex items-center gap-1">
+                        <span class="h-1 w-1 rounded-full bg-sky-300"></span>
+                        Event bridges
+                      </div>
+                      <div class="rounded-md border border-slate-800/80 bg-slate-950/90 px-2 py-1 flex items-center gap-1">
+                        <span class="h-1 w-1 rounded-full bg-sky-300"></span>
+                        Layout engine
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Runtime -->
+                  <div class="relative rounded-xl border border-slate-800/80 bg-slate-950/90 p-3">
+                    <div class="flex items-center justify-between">
+                      <div class="flex items-center gap-2">
+                        <i data-lucide="server" class="w-4 h-4 text-cyan-300"></i>
+                        <span class="text-sm font-semibold tracking-tight text-slate-50">XLSL runtime</span>
+                      </div>
+                      <span class="text-[0.65rem] text-slate-400">server / edge / client</span>
+                    </div>
+                    <p class="mt-1.5 text-xs font-medium text-slate-300">
+                      Core evaluation, dependency tracking, and sync logic that powers every Paperweb surface.
+                    </p>
+                    <div class="mt-2 grid grid-cols-3 gap-2 text-[0.65rem] text-slate-300">
+                      <div class="rounded-md border border-slate-800/80 bg-slate-950/90 px-2 py-1 flex items-center justify-between">
+                        <span>Graph engine</span>
+                        <i data-lucide="git-branch" class="w-3.5 h-3.5 text-cyan-300"></i>
+                      </div>
+                      <div class="rounded-md border border-slate-800/80 bg-slate-950/90 px-2 py-1 flex items-center justify-between">
+                        <span>Formula parser</span>
+                        <i data-lucide="code" class="w-3.5 h-3.5 text-cyan-300"></i>
+                      </div>
+                      <div class="rounded-md border border-slate-800/80 bg-slate-950/90 px-2 py-1 flex items-center justify-between">
+                        <span>Reactive bus</span>
+                        <i data-lucide="radio" class="w-3.5 h-3.5 text-cyan-300"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Data -->
+                  <div class="relative rounded-xl border border-slate-800/80 bg-slate-950/90 p-3">
+                    <div class="flex items-center justify-between">
+                      <div class="flex items-center gap-2">
+                        <i data-lucide="database" class="w-4 h-4 text-emerald-300"></i>
+                        <span class="text-sm font-semibold tracking-tight text-slate-50">Data connectors</span>
+                      </div>
+                      <span class="text-[0.65rem] text-slate-400">DB / APIs / events</span>
+                    </div>
+                    <p class="mt-1.5 text-xs font-medium text-slate-300">
+                      Pluggable connectors inject data and trigger recalculation as external systems change.
+                    </p>
+                    <div class="mt-2 flex flex-wrap gap-2 text-[0.65rem] text-slate-300">
+                      <span class="rounded-md border border-slate-800/80 bg-slate-950/90 px-2 py-1">SQL / NoSQL</span>
+                      <span class="rounded-md border border-slate-800/80 bg-slate-950/90 px-2 py-1">REST / GraphQL</span>
+                      <span class="rounded-md border border-slate-800/80 bg-slate-950/90 px-2 py-1">Message bus</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Code / spec view -->
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Spec snapshot</span>
+                  <span class="text-[0.65rem] text-slate-500">from Aura_Full_Project.xlsl</span>
+                </div>
+                <div class="rounded-xl border border-slate-800/80 bg-slate-950/95 overflow-hidden">
+                  <div class="flex items-center justify-between px-3 py-2 border-b border-slate-800/80 bg-slate-950/90">
+                    <div class="flex items-center gap-2 text-xs text-slate-300">
+                      <i data-lucide="file-code-2" class="w-3.5 h-3.5 text-cyan-300"></i>
+                      <span class="font-semibold">aura.config.xlsl</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-[0.65rem] text-slate-500">
+                      <span>YAML-like</span>
+                    </div>
+                  </div>
+                  <div class="text-[0.7rem] font-medium text-slate-200/95 px-3 py-3 space-y-1.5 bg-gradient-to-b from-slate-950 to-slate-950/90">
+                    <pre class="whitespace-pre-wrap leading-relaxed">paperweb:
+  pages:
+    dashboard:
+      source: "dashboard!A1:E32"
+      layout: "auto-dashboard"
+      bindings:
+        mrr: "B1"
+        active_users: "B2"
+        churn_rate: "B3"
+
+runtime:
+  mode: "reactive"
+  evaluation: "incremental"
+  connectors:
+    - type: "http"
+      name: "analytics"
+      baseUrl: "https://api.example.com"
+                    </pre>
+                  </div>
+                </div>
+
+                <div class="rounded-xl border border-slate-800/80 bg-slate-950/95 overflow-hidden">
+                  <div class="flex items-center justify-between px-3 py-2 border-b border-slate-800/80 bg-slate-950/90">
+                    <div class="flex items-center gap-2 text-xs text-slate-300">
+                      <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5 text-emerald-300"></i>
+                      <span class="font-semibold">Example formulas</span>
+                    </div>
+                    <span class="text-[0.65rem] text-slate-500">XLSL layer</span>
+                  </div>
+                  <div class="text-[0.7rem] font-medium text-slate-200/95 px-3 py-3 space-y-1.5 bg-slate-950">
+                    <div class="flex items-start gap-2">
+                      <span class="text-slate-500">A2</span>
+                      <span class="text-cyan-200">=AURA.GET("analytics", "/users/active")</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                      <span class="text-slate-500">A3</span>
+                      <span class="text-cyan-200">=AURA.CHURN(A2:A100, window_days: 30)</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                      <span class="text-slate-500">A4</span>
+                      <span class="text-cyan-200">=AURA.PAPERWEB.PAGE("dashboard")</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                      <span class="text-slate-500">A5</span>
+                      <span class="text-cyan-200">=AURA.TRIGGER("sync", when: NOW() &gt;= B1)</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Playground -->
+      <section id="playground" class="border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-50">Interactive XLSL → Paperweb playground</h2>
+              <p class="text-base font-medium text-slate-300 max-w-2xl mt-2">
+                Simulate a minimal Aura configuration in the browser: define a sheet range,
+                bind cells, and preview the rendered Paperweb view.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-[minmax(0,1.05fr),minmax(0,1.05fr)] gap-5">
+            <!-- Left: config form -->
+            <div class="rounded-2xl border border-slate-800/80 bg-slate-950/95 p-4 sm:p-5 space-y-4">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2 text-xs text-slate-300">
+                  <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5 text-cyan-300"></i>
+                  <span class="font-semibold">Paperweb config</span>
+                </div>
+                <span class="text-[0.65rem] text-slate-500">Client demo</span>
+              </div>
+
+              <div class="space-y-3 text-sm font-medium">
+                <div class="space-y-1.5">
+                  <label class="text-xs font-semibold text-slate-300">Sheet range</label>
+                  <input id="rangeInput" type="text" value="dashboard!A1:E7" class="w-full rounded-lg border border-slate-800/80 bg-slate-950/90 text-xs font-medium text-slate-100 px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-cyan-400/70">
+                </div>
+
+                <div class="grid sm:grid-cols-3 gap-3">
+                  <div class="space-y-1.5">
+                    <label class="text-xs font-semibold text-slate-300">MRR cell</label>
+                    <input id="mrrCellInput" type="text" value="B1" class="w-full rounded-lg border border-slate-800/80 bg-slate-950/90 text-xs font-medium text-slate-100 px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-cyan-400/70">
+                  </div>
+                  <div class="space-y-1.5">
+                    <label class="text-xs font-semibold text-slate-300">Active users cell</label>
+                    <input id="usersCellInput" type="text" value="B2" class="w-full rounded-lg border border-slate-800/80 bg-slate-950/90 text-xs font-medium text-slate-100 px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-cyan-400/70">
+                  </div>
+                  <div class="space-y-1.5">
+                    <label class="text-xs font-semibold text-slate-300">Churn cell</label>
+                    <input id="churnCellInput" type="text" value="B3" class="w-full rounded-lg border border-slate-800/80 bg-slate-950/90 text-xs font-medium text-slate-100 px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-cyan-400/70">
+                  </div>
+                </div>
+
+                <div class="space-y-1.5">
+                  <label class="text-xs font-semibold text-slate-300">Layout</label>
+                  <select id="layoutSelect" class="w-full rounded-lg border border-slate-800/80 bg-slate-950/90 text-xs font-medium text-slate-100 px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-cyan-400/70">
+                    <option value="cards">Cards dashboard</option>
+                    <option value="table">Table</option>
+                    <option value="summary">Summary</option>
+                  </select>
+                </div>
+
+                <div class="space-y-2">
+                  <label class="text-xs font-semibold text-slate-300">Hypothetical data</label>
+                  <div class="grid sm:grid-cols-3 gap-2">
+                    <div class="rounded-lg border border-slate-800/80 bg-slate-950/90 px-2.5 py-1.5 flex items-center justify-between">
+                      <span class="text-xs text-slate-300">MRR</span>
+                      <input id="mrrValueInput" type="number" value="12430" class="w-20 text-right bg-transparent text-xs font-semibold text-slate-100 focus:outline-none">
+                    </div>
+                    <div class="rounded-lg border border-slate-800/80 bg-slate-950/90 px-2.5 py-1.5 flex items-center justify-between">
+                      <span class="text-xs text-slate-300">Users</span>
+                      <input id="usersValueInput" type="number" value="1930" class="w-20 text-right bg-transparent text-xs font-semibold text-slate-100 focus:outline-none">
+                    </div>
+                    <div class="rounded-lg border border-slate-800/80 bg-slate-950/90 px-2.5 py-1.5 flex items-center justify-between">
+                      <span class="text-xs text-slate-300">Churn %</span>
+                      <input id="churnValueInput" type="number" step="0.1" value="3.2" class="w-20 text-right bg-transparent text-xs font-semibold text-slate-100 focus:outline-none">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-1">
+                  <button id="applyConfigBtn" class="inline-flex items-center gap-2 rounded-lg bg-cyan-400/90 hover:bg-cyan-300 text-slate-950 text-xs font-semibold px-3 py-1.5 shadow-md shadow-cyan-500/40">
+                    <i data-lucide="wand-2" class="w-3.5 h-3.5"></i>
+                    <span>Apply config</span>
+                  </button>
+                  <span id="playgroundStatus" class="text-[0.65rem] text-slate-500">Waiting for changes…</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: preview -->
+            <div class="rounded-2xl border border-slate-800/80 bg-slate-950/95 p-4 sm:p-5 space-y-4">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2 text-xs text-slate-300">
+                  <i data-lucide="layout-dashboard" class="w-3.5 h-3.5 text-emerald-300"></i>
+                  <span class="font-semibold">Paperweb preview</span>
+                </div>
+                <span class="text-[0.65rem] text-slate-500" id="layoutLabel">Layout: cards</span>
+              </div>
+
+              <div class="space-y-3" id="previewContainer">
+                <!-- dynamic content filled by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Repo -->
+      <section id="repo">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-6">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div class="space-y-2">
+              <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-50">Explore the Aura XLSL repo</h2>
+              <p class="text-base font-medium text-slate-300 max-w-2xl">
+                Clone the reference project, inspect the XLSL sheets, and adapt the Paperweb engine
+                for your own workflows and applications.
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-3 text-xs font-medium">
+              <a href="https://github.com/Web4application/Aura_Full_Project.xlsl.git" target="_blank" class="inline-flex items-center gap-2 rounded-lg border border-slate-700/80 bg-slate-950/90 hover:bg-slate-900/80 text-slate-50 px-3.5 py-2">
+                <i data-lucide="github" class="w-4 h-4"></i>
+                <span>Web4application / Aura_Full_Project.xlsl</span>
+              </a>
+              <button class="inline-flex items-center gap-2 rounded-lg bg-slate-50 text-slate-950 hover:bg-slate-100 px-3.5 py-2">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span>Copy clone URL</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-5">
+            <div class="rounded-2xl border border-slate-800/80 bg-slate-950/95 p-4 space-y-2 text-sm font-medium text-slate-300">
+              <div class="flex items-center gap-2 text-xs text-slate-400">
+                <i data-lucide="folder-tree" class="w-3.5 h-3.5 text-cyan-300"></i>
+                <span class="font-semibold">Project layout</span>
+              </div>
+              <pre class="text-[0.7rem] leading-relaxed bg-slate-950/90 border border-slate-800/80 rounded-lg px-3 py-2 overflow-x-auto">/Aura_Full_Project.xlsl
+  /sheets
+    dashboard.xlsl
+    config.xlsl
+  /runtime
+    graph.ts
+    evaluator.ts
+  /paperweb
+    bindings.ts
+    components/
+              </pre>
+            </div>
+
+            <div class="rounded-2xl border border-slate-800/80 bg-slate-950/95 p-4 space-y-2 text-sm font-medium text-slate-300">
+              <div class="flex items-center gap-2 text-xs text-slate-400">
+                <i data-lucide="terminal" class="w-3.5 h-3.5 text-emerald-300"></i>
+                <span class="font-semibold">Quick start</span>
+              </div>
+              <pre class="text-[0.7rem] leading-relaxed bg-slate-950/90 border border-slate-800/80 rounded-lg px-3 py-2 overflow-x-auto">git clone https://github.com/Web4application/Aura_Full_Project.xlsl.git
+cd Aura_Full_Project.xlsl
+
+# install &amp; run dev server (example)
+npm install
+npm run dev
+              </pre>
+            </div>
+
+            <div class="rounded-2xl border border-slate-800/80 bg-slate-950/95 p-4 space-y-3 text-sm font-medium text-slate-300">
+              <div class="flex items-center gap-2 text-xs text-slate-400">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-violet-300"></i>
+                <span class="font-semibold">What to inspect</span>
+              </div>
+              <ul class="space-y-1.5 text-xs font-medium text-slate-300">
+                <li class="flex items-center gap-2">
+                  <span class="h-1 w-1 rounded-full bg-violet-300"></span>
+                  <span>How XLSL sheets are mapped into the runtime graph.</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1 w-1 rounded-full bg-violet-300"></span>
+                  <span>Binding definitions that power the Paperweb components.</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1 w-1 rounded-full bg-violet-300"></span>
+                  <span>Examples of custom AURA.* functions and connectors.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-medium text-slate-500">
+        <div class="flex items-center gap-2">
+          <span class="text-slate-300 font-semibold tracking-tight">Aura XLSL</span>
+          <span>· Paperweb reference</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="#overview" class="hover:text-slate-200">Overview</a>
+          <a href="#capabilities" class="hover:text-slate-200">Capabilities</a>
+          <a href="#architecture" class="hover:text-slate-200">Architecture</a>
+          <a href="#repo" class="hover:text-slate-200">Repository</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    lucide.createIcons({ attr: { "stroke-width": 1.5 } });
+
+    function formatCurrency(value) {
+      const num = Number(value) || 0;
+      return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(num);
+    }
+
+    function renderPreview() {
+      const layout = document.getElementById("layoutSelect").value;
+      const mrr = Number(document.getElementById("mrrValueInput").value) || 0;
+      const users = Number(document.getElementById("usersValueInput").value) || 0;
+      const churn = Number(document.getElementById("churnValueInput").value) || 0;
+
+      const range = document.getElementById("rangeInput").value || "dashboard!A1:E7";
+      const mrrCell = document.getElementById("mrrCellInput").value || "B1";
+      const usersCell = document.getElementById("usersCellInput").value || "B2";
+      const churnCell = document.getElementById("churnCellInput").value || "B3";
+
+      document.getElementById("layoutLabel").textContent = "Layout: " + layout;
+
+      const container = document.getElementById("previewContainer");
+      container.innerHTML = "";
+
+      if (layout === "cards") {
+        container.innerHTML = `
+          <div class="grid sm:grid-cols-3 gap-3">
+            <div class="rounded-xl border border-slate-800/80 bg-slate-950/90 p-3 flex flex-col gap-1.5">
+              <div class="text-[0.7rem] font-semibold text-slate-400 uppercase tracking-wide">Total MRR</div>
+              <div class="text-xl font-semibold tracking-tight text-slate-50">${formatCurrency(mrr)}</div>
+              <div class="text-[0.65rem] text-slate-400">bound to <span class="text-cyan-300 font-semibold">${mrrCell}</span></div>
+            </div>
+            <div class="rounded-xl border border-slate-800/80 bg-slate-950/90 p-3 flex flex-col gap-1.5">
+              <div class="text-[0.7rem] font-semibold text-slate-400 uppercase tracking-wide">Active users</div>
+              <div class="text-xl font-semibold tracking-tight text-slate-50">${users.toLocaleString()}</div>
+              <div class="text-[0.65rem] text-slate-400">bound to <span class="text-cyan-300 font-semibold">${usersCell}</span></div>
+            </div>
+            <div class="rounded-xl border border-slate-800/80 bg-slate-950/90 p-3 flex flex-col gap-1.5">
+              <div class="text-[0.7rem] font-semibold text-slate-400 uppercase tracking-wide">Churn rate</div>
+              <div class="text-xl font-semibold tracking-tight text-slate-50">${churn.toFixed(1)}%</div>
+              <div class="text-[0.65rem] text-slate-400">bound to <span class="text-cyan-300 font-semibold">${churnCell}</span></div>
+            </div>
+          </div>
+          <div class="rounded-xl border border-slate-800/80 bg-slate-950/90 p-3 text-[0.7rem] text-slate-300">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-semibold text-slate-200">Binding summary</span>
+              <span class="text-slate-500">source: ${range}</span>
+            </div>
+            <pre class="bg-slate-950 border border-slate-800/80 rounded-lg px-2.5 py-2 overflow-x-auto">
+{
+  "range": "${range}",
+  "bindings": {
+    "mrr": "${mrrCell}",
+    "active_users": "${usersCell}",
+    "churn_rate": "${churnCell}"
+  }
+}
+            </pre>
+          </div>
+        `;
+      } else if (layout === "table") {
+        container.innerHTML = `
+          <div class="rounded-xl border border-slate-800/80 bg-slate-950/90 overflow-hidden">
+            <table class="w-full text-[0.7rem] text-slate-300">
+              <thead class="bg-slate-900/80 border-b border-slate-800/80">
+                <tr>
+                  <th class="text-left font-semibold px-2 py-1.5">Metric</th>
+                  <th class="text-left font-semibold px-2 py-1.5">Value</th>
+                  <th class="text-left font-semibold px-2 py-1.5">Cell</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-slate-800/80">
+                  <td class="px-2 py-1.5 text-slate-200">Total MRR</td>
+                  <td class="px-2 py-1.5">${formatCurrency(mrr)}</td>
+                  <td class="px-2 py-1.5 text-cyan-300 font-semibold">${mrrCell}</td>
+                </tr>
+                <tr class="border-b border-slate-800/80">
+                  <td class="px-2 py-1.5 text-slate-200">Active users</td>
+                  <td class="px-2 py-1.5">${users.toLocaleString()}</td>
+                  <td class="px-2 py-1.5 text-cyan-300 font-semibold">${usersCell}</td>
+                </tr>
+                <tr>
+                  <td class="px-2 py-1.5 text-slate-200">Churn rate</td>
+                  <td class="px-2 py-1.5">${churn.toFixed(1)}%</td>
+                  <td class="px-2 py-1.5 text-cyan-300 font-semibold">${churnCell}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-[0.7rem] text-slate-400">
+            This is a minimal stand‑in for a full Aura Paperweb table view rendering bindings from
+            <span class="text-slate-200 font-semibold">${range}</span>.
+          </p>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="rounded-xl border border-slate-800/80 bg-slate-950/90 p-3 space-y-2">
+            <div class="text-xs font-semibold text-slate-200">Summary snapshot</div>
+            <p class="text-sm font-medium text-slate-300">
+              ${formatCurrency(mrr)} MRR with ${users.toLocaleString()} active users and
+              ${churn.toFixed(1)}% 30‑day churn.
+            </p>
+            <p class="text-[0.7rem] text-slate-400">
+              Bound from <span class="text-cyan-300 font-semibold">${range}</span> via
+              <span class="text-slate-200 font-semibold">Aura.PAPERWEB.PAGE()</span> configuration.
+            </p>
+          </div>
+        `;
+      }
+    }
+
+    document.getElementById("applyConfigBtn").addEventListener("click", () => {
+      renderPreview();
+      const status = document.getElementById("playgroundStatus");
+      status.textContent = "Config applied · simulated bindings updated";
+      status.classList.remove("text-slate-500");
+      status.classList.add("text-cyan-300");
+      setTimeout(() => {
+        status.textContent = "Waiting for changes…";
+        status.classList.remove("text-cyan-300");
+        status.classList.add("text-slate-500");
+      }, 2000);
+    });
+
+    renderPreview();
+  </script>
+
+</body></html>
