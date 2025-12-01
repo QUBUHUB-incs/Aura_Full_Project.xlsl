@@ -1,0 +1,11 @@
+{
+  "extensions": {
+    "xlmath": {
+      "Sheet1": {"SUM_RANGE": {}, "AVG_RANGE": {}},
+      "CalcSheet": {"MULTIPLY": {}, "DIVIDE": {}}
+    },
+    "xlcode": {
+      "ParserSheet": {"PARSE_FILE": {}, "CHECK_DEPENDENCIES": {}}
+    }
+  }
+}
