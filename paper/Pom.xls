@@ -8,11 +8,11 @@
   <!-- use single quotes to avoid double quotes escaping in the publisher value  -->
   <Identity Name="${identityName}"
     ProcessorArchitecture="${arch}"
-    Publisher='${publisher}'
-    Version="${version}" />
+    Publisher='${seriki yakub}'
+    Version="${1:l.2}" />
   <Properties>
-    <DisplayName>${displayName}</DisplayName>
-    <PublisherDisplayName>${publisherDisplayName}</PublisherDisplayName>
+    <DisplayName>${aura xlsl}</DisplayName>
+    <PublisherDisplayName>${seriki yakub}</PublisherDisplayName>
     <Description>${description}</Description>
     <Logo>${logo}</Logo>
   </Properties>
