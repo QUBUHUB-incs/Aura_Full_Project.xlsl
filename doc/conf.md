@@ -109,6 +109,16 @@ For a more custom installation, follow these steps to build the SDK from source.
     ```bash
     cmake --build .
     ```
+fetch('page.wmcp')
+.then(response => response.json())
+.then(wrapper => decodeWrapper(wrapper))
+.then(payload => agent.prompt(payload.elements));
+```javascript
+// Enhanced Playwright with webMCP support
+const { webMCPPage } = require('playwright-webmcp');
+const page = await webMCPPage.load('https://example.com');
+await page.webMCPAction('LOGIN', { username: 'user', password: 'pass'
+}); ``
 
 ### Setup Guides - build from source
 
