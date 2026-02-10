@@ -1,0 +1,31 @@
+{
+"version": "0.2",
+"context": "Login flow",
+"elements": [
+{ "selector": "#user", "role": "input.text", "name": "USERNAME" },
+{ "selector": "#pass", "role": "input.password", "name": "PASSWORD" },
+{ "selector": "#loginBtn", "role": "button.submit",
+"action": {
+"kind": "POST",
+"endpoint": "@LOGIN_API",
+"csrf_tag": "$CSRF_TOKEN",
+"payload_jwe": "eyJhbGciOiJ...EncryptedPayload..."
+}
+}
+],
+"security": {
+"endpoints": {
+"@LOGIN_API": {
+"tokenised": true,
+9
+"expires": 300,
+"scopes": ["auth:login"]
+}
+},
+"csrf": {
+"token_field": "csrf_token",
+"header_name": "X-CSRF-TOKEN",
+"mode": "double-submit"
+}
+}
+}
