@@ -26,7 +26,7 @@ Duration:         51680.83s
 Duration Sampled: 51679.61s (event starts 1.21s before samples)
 Steps:            4401 (10 gigacycles/step, 30 samples lost, 10.49 MB/step)
 
-Hardware model:   Aura
+Hardware model:   paperweb
 Active cpus:      6
 Memory size:      3.68 GB
 HW page size:     16384
