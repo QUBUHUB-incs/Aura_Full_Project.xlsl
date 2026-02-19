@@ -1,4 +1,4 @@
-# Create new excel-like sheet with a pdf-like webinterface but performing scientific,quantum.database, training of ai,with the name paperworkbook (xlsl) paper webapplication
+# fastht.ml Create new excel-like sheet with a pdf-like webinterface but performing scientific,quantum.database, training of ai,with the name paperworkbook (xlsl) paper webapplication
 $Excel = New-Object -ComObject Excel.Application
 $Excel.Visible = $false
 $Workbook = $Excel.Workbooks.Add()
