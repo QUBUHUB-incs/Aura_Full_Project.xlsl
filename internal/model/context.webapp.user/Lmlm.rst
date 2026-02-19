@@ -1,7 +1,7 @@
 Perfect! Now we’re moving into the final layer: giving LMLM a visual/AR presence, so it feels like it’s “with you” in your space. Think of it as your AI buddy that not only talks and listens but also “shows up” visually.
 
 ⸻
-
+ 
 Step 6 – Immersive Visual/AR Layer for LMLM
 
 ⸻
