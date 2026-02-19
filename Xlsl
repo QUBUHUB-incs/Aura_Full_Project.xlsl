@@ -1,0 +1,81 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" 
+      xmlns:x="urn:schemas-microsoft-com:office:excel" 
+      xmlns="http://www.w3.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--[if gte mso 9]>
+<xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>Dark Theme Report</x:Name>
+    <x:WorksheetOptions>
+     <x:DisplayGridlines/>
+     <x:Print>
+      <x:ValidPrinterInfo/>
+     </x:Print>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+ </xml>
+<![endif]-->
+<style>
+  /* Base Styles */
+  body { 
+    background: #0d0d0d; 
+    color: #e7e7e7; 
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+
+  /* Header row styling */
+  h1 { 
+    font-size: 24pt; 
+    color: #ffffff;
+    text-align: center;
+    mso-height-source: userset;
+    height: 40pt;
+  }
+
+  /* Main table formatting */
+  table { border-collapse: collapse; }
+  
+  td {
+    border: 0.5pt solid #333333;
+    padding: 8pt;
+    background: #1a1a1a;
+    color: #e7e7e7;
+    vertical-align: middle;
+    /* mso-style-parent ensures standard Excel behavior */
+    mso-style-parent: style0;
+    white-space: nowrap;
+  }
+
+  /* Specific MSO Logic */
+  .code-cell {
+    mso-number-format: "\@"; /* Explicitly treats content as Text */
+    font-family: "Courier New", monospace;
+    background: #111111;
+  }
+
+  .nav-link {
+    color: #9c9cff;
+    text-decoration: underline;
+    mso-number-format: "General";
+  }
+</style>
+</head>
+<body>
+  <h1>Developer Portfolio</h1>
+  <table>
+    <tr>
+      <td class="code-cell">body { background: #0d0d0d; }</td>
+      <td class="nav-link">Documentation</td>
+    </tr>
+    <tr>
+      <td class="code-cell">pre { border-radius: 6px; }</td>
+      <td class="nav-link">Source Code</td>
+    </tr>
+  </table>
+</body>
+</html>
