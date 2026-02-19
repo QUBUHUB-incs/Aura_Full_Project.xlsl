@@ -1,10 +1,6 @@
-
-
-⸻
-```cpp
-
-/aura_berry/
-│
+!#
+```sh
+/aura_berry
 ├─ levels/
 │   ├─ level_01.berry
 │   ├─ level_02.berry
@@ -32,7 +28,7 @@
     ├─ subAI_01.berry
     ├─ subAI_02.berry
     └─ subAI_03.berry
-
+```
 
 ⸻
 
