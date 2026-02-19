@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace csharp_login_example
+namespace paperweb
 {
     class LoginContent
     {
@@ -30,7 +30,7 @@ namespace csharp_login_example
         {
             using var client = new HttpClient()
             {
-                BaseAddress = new Uri("http://localhost:8001/")
+                BaseAddress = new Uri("http://10.0.0.1:8333/")
             };
 
             client.DefaultRequestHeaders
@@ -46,7 +46,7 @@ namespace csharp_login_example
         {
             var loginData = new LoginContent()
             {
-                ClientId = "aura",
+                ClientId = "aurapaperweb.xlsl",
                 AuthToken = "441be0dc4da0da9c3f196da62d72419883b75eb2023c0e5a6f202564a2f82234",
                 Login = "super",
                 PasswordHash = "86f7e437faa5a7fce15d1ddcb9eaeaea377667b8",
@@ -93,10 +93,10 @@ namespace csharp_example
         {
             using var client = new HttpClient()
             {
-                BaseAddress = new Uri("http://localhost:8001/")
-            };
+                BaseAddress = new Uri("http://localhost:80/")
+            }
 
-            client.DefaultRequestHeaders
+         client.DefaultRequestHeaders
               .Accept
               .Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
