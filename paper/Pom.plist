@@ -13,7 +13,7 @@
   <Properties>
     <DisplayName>${aura xlsl}</DisplayName>
     <PublisherDisplayName>${seriki yakub}</PublisherDisplayName>
-    <Description>${description}</Description>
+    <Description>${description}</Description> 
     <Logo>${logo}</Logo>
   </Properties>
   <Resources>
