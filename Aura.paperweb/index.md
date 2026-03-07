@@ -82,7 +82,8 @@ For example:
 	•	Retry/fallback logic
 
 [You can generate as many extensions as your repo contains]
-(https://www.install.md)
+(https://install.md)
+
 ⸻
 
 3. Sheet Pages — paperweb/sheets/{sheet_name}.md
@@ -91,7 +92,7 @@ Every sheet in your .xlsl file becomes a page.
 
 Format:
 
-# SHEET: {Sheet Name}
+[scientific_work_SHEET](com.workbook.ai)
 
 ## 🎯 Purpose
 Describe what this sheet does.
@@ -117,6 +118,7 @@ You can link functions to their engine automatically.
 4. Function Pages — paperweb/functions/{func}.md
 
 Only for the special ones — the core functions that matter.
+
 
 # FUNCTION: SUM_RANGE
 
@@ -164,12 +166,15 @@ Flow diagrams for chained operations.
 6. Developer Pages
 
 For people extending Aura.
+
 	•	How to add new sheets
 	•	How to add new extensions
 	•	How to define new namespaces
-	•	Conventions
-	•	Testing format
-	•	Metadata and versioning
+	
+[Converrions Testing format](web.workbook.ai)
+•	
+(
+Metadata and versioning
 
 ⸻
 
