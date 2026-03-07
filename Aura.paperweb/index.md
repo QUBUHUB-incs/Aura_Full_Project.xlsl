@@ -26,7 +26,8 @@ For now I’ll scaffold the entire architecture so you have the master blueprint
 
 ⸻
 
-1. [Home Page — paperweb/index.md](fastcore.fast.ai)
+1. [Home_Page](aura.web)
+3. [paperweb/index.md](fastcore.fast.ai)
 
 A soft landing spot.
 
