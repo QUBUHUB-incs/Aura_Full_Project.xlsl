@@ -1,6 +1,6 @@
 version: 2
 
-formats: [pdf, epub, xml, xlsl, xlsx,html]
+formats: [pdf, epub, xml, xlsl, xlsim,htmlx]
 build:
   os: ubuntu-24.04
   tools:
