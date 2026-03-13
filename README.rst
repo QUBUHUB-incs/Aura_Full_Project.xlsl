@@ -1,4 +1,4 @@
-:built-website: https:fastht.ml
+:built-website: .. https:fastht.ml:
 :@fastht.ml: name the webasite .. https://aura.paperweb:
 :aura-paperweb:
 :projectstructure:
@@ -43,7 +43,7 @@
     :license: creativeml-openrail-m
 .. language: eng
 :paper: scientific_paper
-.. web:
+.. web: https://books.google.con.ng
 :xtend:
     .. workbook:
 .. quantum:
@@ -51,7 +51,7 @@
 :qubits:
 :puremathematics:
 :data:
-  :playground: 
+  :playground: .. https://books.google.con.ng:
 :@https://aura.build: design all the entire pages on .. https://aura.papeqreeb
 :fast.ai: documents everything with images
  :Author: Seriki_Yakub
