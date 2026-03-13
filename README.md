@@ -43,7 +43,7 @@
     :license: creativeml-openrail-m
 .. language: eng
 :paper: scientific_paper
-.. web: https://books.google.con.ng
+.. web: https://books.google.com.ng
 :xtend:
     .. workbook:
 .. quantum:
@@ -51,7 +51,7 @@
 :qubits:
 :puremathematics:
 :data:
-  :playground: .. https://books.google.con.ng:
+  :playground: .. https://books.google.com.ng:
 :@https://aura.build: design all the entire pages on .. https://aura.papeqreeb
 :fast.ai: documents everything with images
  :Author: Seriki_Yakub
