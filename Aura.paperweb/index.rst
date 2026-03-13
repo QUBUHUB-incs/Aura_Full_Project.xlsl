@@ -1,5 +1,5 @@
 ---
-pretty_name: "Edge Agent Reasoning WebSearch 260K"
+pretty_name: "aura the oracle"
 license: mit
 language:
 - en
