@@ -1,4 +1,6 @@
-     :aura-paperweb:
+:built-website: https:fastht.ml
+:@fastht.ml: name the webasite .. https://aura.paperweb:
+:aura-paperweb:
 :projectstructure:
 .. extension-tags:
 :notebookxlsl:
@@ -50,8 +52,8 @@
 :puremathematics:
 :data:
   :playground: 
-
-
+:@https://aura.build: design all the entire pages on .. https://aura.papeqreeb
+:fast.ai: documents everything with images
  :Author: Seriki_Yakub
  :Date: 2025
  :project:Aura File Ecosystem — v0.1
@@ -84,10 +86,10 @@ cd AuraQuantumIDE
 pip install -r requirements.txt
 uvicorn api.main:app --reload
 https://github.com/Web4application/Aura_Full_Project.xlsl.git
-```
-⸻
 
-:first project:
+
+
+:first-project: .. https:aura.build:
 
     .. aura_project/:
     ├── data/
