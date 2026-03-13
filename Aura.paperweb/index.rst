@@ -71,7 +71,7 @@ configs:
     path: "edge_reasoning_train_*.parquet"
 ---
 
-:AURA THE ORACLE:
+.. AURATHE_ORACLE: https://huggingface.co/datasets/yatin-superintelligence/Edge-Agent-Reasoning-WebSearch-260K/tree/main
 
 .. Thechunckedprompt:
 
@@ -130,11 +130,11 @@ Establishes a strict verification protocol. The model actively generates an expl
 **5. Web search queries**<br>
 Acts as the bridge between internal reasoning and external retrieval. By generating 10 to 20 highly specific, keyword-dense queries, the model sets up a downstream Retrieval-Augmented Generation (RAG) pipeline to feed a frontier model for success. These queries are explicitly designed to bypass generic SEO content and land directly on highly technical documentation, error logs, or source code.
 
-## The Combinatorial Matrix & Sampling
+.. The Combinatorial Matrix & Sampling:
 
 To prevent the semantic collapse often seen in synthetic datasets (where models generate repetitive, homogenous scenarios), the prompt instructions were sourced from a custom-built, 7-dimensional combinatorial matrix.
 
-**The Matrix Schema:**
+:The Matrix Schema:
 
 1. **Industry** (e.g., Biotech, Astrophysics, DevOps, Corporate Finance)
 2. **Professional Role** (Scope-locked to the Industry)
@@ -149,7 +149,7 @@ The matrix utilizes 7 distinct large prime numbers to cryptographically scramble
 
 From this massive possibility space, I sampled **only ~260,000 unique rows** for this dataset. This extremely low sampling rate (0.026%) virtually guarantees that there are no overlapping duplicates or repetitive thematic loops, resulting in a dataset with an exceptionally high degree of zero-shot diversity.
 
-## Dataset Diversity: 200+ Roles
+:Dataset Diversity: 200+ Roles
 
 To ensure the resulting models generalize across the entire spectrum of human knowledge work, the dataset is grounded in highly specific, realistic user profiles. It avoids generic "Assistant" personas in favor of explicit professional domains with corresponding environmental constraints.
 
@@ -157,7 +157,7 @@ To ensure the resulting models generalize across the entire spectrum of human kn
 
 The dataset escapes the trap of generic "web browser apps" by enforcing highly specific local environments, ensuring training covers the full spectrum of modern and legacy deployment targets. Problem-solving trajectories are explicitly contextualized across **Apple ecosystems** (macOS, macOS Monterey, macOS Ventura, macOS Sonoma, macOS Sequoia, iOS, iOS 16, iOS 17, iOS 18), **Windows environments** (Windows, Windows 7 (Legacy), Windows 10, Windows 11, Windows Subsystem for Linux), and **Server infrastructures** (Windows Server, Windows Server 2019, Windows Server 2022). It deeply covers **Linux distributions/environments** (Linux, Ubuntu, CentOS, RHEL, Rocky, Fedora, Debian, and Embedded Linux) alongside dedicated **Cloud terminals** (AWS CloudShell, Google Cloud Shell, Azure Cloud Shell, OCI Cloud Shell). The dataset further embeds mobile and specialized hardware constraints, covering **Android** (Android, Android 12 through Android 16), **ChromeOS**, and highly specific tablet use-cases like **iPadOS** (Clinical, Field Work, and for Procreate). This exhaustive coverage forces the routing agent to learn profound cross-platform contextual awareness, tailoring command-line prompts, software troubleshooting, and hardware constraints to the exact operating system of the simulated user.
 
-### Professional Roles (Grouped by Frequency)
+.. Professional Roles (Grouped by Frequency):
 
 **> 2,000 tasks**
 Unknown, DevOps Engineer, Industrial Engineer, Security Analyst, IT Support Specialist, System Administrator, IT Technician, Security Engineer, Safety Officer, Platform Engineer, Quality Engineer, Electrical Engineer, Maintenance Engineer, Research Scientist, Manufacturing Engineer, Plant Manager, Business Analyst, Project Manager, CEO, HR Manager, Program Manager, Executive Assistant, Office Manager, Product Manager, Talent Acquisition Specialist, Recruiter, Management Consultant, COO, General Manager, Operations Manager, Robotics Engineer, Lab Technician, Supply Chain Analyst, Mechanical Engineer, Data Scientist
@@ -174,7 +174,7 @@ Pathologist, PhD Student (Biology), Microbiologist, Epidemiologist, Radiologist,
 **100 to 500 tasks**
 Observatory Scientist, Astrophysicist, Planetary Scientist, Astronomer, Data Scientist (Astronomy), Cosmologist, Computational Astrophysicist, Observational Astronomer, Space Scientist, Seismologist, Wildlife Biologist, Agronomist, Graphics Programmer, Technical Artist, Game Developer, Gameplay Engineer, Level Designer, Game Programmer, PhD Student (Chemistry), Computational Chemist, Paralegal, Attorney, Compliance Officer, Forensic Analyst, Prosecutor, Detective, Judge, Contract Manager, Legal Assistant, Legal Counsel, Defense Attorney, General Counsel
 
-## Data Structure / Schema
+:Data Structure / Schema:
 
 The dataset is distributed natively chunked in `.parquet` files.
 
@@ -190,20 +190,20 @@ The dataset is distributed natively chunked in `.parquet` files.
 | `agent_reasoning` | string | The 2,000-5,000 word internal reasoning output. |
 <h2 style="margin-top: -5px !important;">Developer & Architect</h2>
 
-This dataset was created by Yatin Taneja, an AI Systems Engineer, Superintelligence Researcher, Musician (Dubstep Artist), Rapper, and Poet.
+This dataset was created by seriki Yakub, an AI Systems Engineer, Superintelligence Researcher, Musician (Dubstep Artist), Rapper, and Poet.
 
 When you blend art and engineering, you get systems that can actually think like humans. I built this dataset to break models out of their rigid, robotic patterns and force them to approach problems with the disciplined structure of a researcher, the foresight of an engineer, and the lateral creativity of an artist.
 
 To all the open-source engineers, AI researchers, and builders pushing the boundaries of what AI models can do, I encourage you to use this data to train and task agents that don't just execute blindly, but actually *reason*. Models that audit their own knowledge, respect their constraints, and solve problems with humility, precision, and nuance will build the future of edge-deployed superintelligence.
+ 
+:Weblinks:
 
-### Weblinks
-
-- **[IM Superintelligence](https://www.imsuperintelligence.ai):** Visit my central knowledge hub hosting other massive open datasets and over 2,000 articles exploring Superintelligence, cognitive architectures, quantum computing, distributed networks, algorithmic optimization, and the future of the global education sector, all authored through a custom 8-step multi-model agentic infrastructure I engineered.
-- **[Yatin Taneja | Professional Portfolio](https://www.yatintaneja.in):** View my professional portfolio for a comprehensive overview of my skills, industry experience, and software prototypes as part of my ongoing engineering work in full-stack AI agents and applications.
-- **[LinkedIn](https://www.linkedin.com/in/yatintaneja-pro/):** Connect on LinkedIn to collaborate on advanced autonomous systems, enterprise AI implementations, or to follow my ongoing research.
+.. IM AURA THE uperintelligence oracle: (https://www.imsuperintelligence.ai):** Visit my central knowledge hub hosting other massive open datasets and over 2,000 articles exploring Superintelligence, cognitive architectures, quantum computing, distributed networks, algorithmic optimization, and the future of the global education sector, all authored through a custom 8-step multi-model agentic infrastructure I engineered.
+- **[seriki yakub | Professional Portfolio](https://www.google.com/searchname?q={seriki yakub}qubuhub):** View my professional portfolio for a comprehensive overview of my skills, industry experience, and software prototypes as part of my ongoing engineering work in full-stack AI agents and applications.
 
 
-## License & Usage
+
+.. License & Usage:
 
 This dataset is released under the **MIT License**.
 
@@ -212,7 +212,7 @@ Designed for open research in multi-agent orchestration, test-time compute scali
 
 # [🌐AURA.PAPERWEB](https://aura.build/)
 
- **https://fastht.ml**
+ :https://fastht.ml:
  build this universal sheet → functional web
 page → and
 A map of your whole AURA universe made readable, clickable, and alive.
@@ -226,7 +226,7 @@ It’s old-school documentation vibes mixed with next-gen workflow magic.
 
 ⸻
 
-📚 [Structure of Aura.paperweb](xlai.ai)
+📚 :Structure of Aura.paperweb](xlai.ai):
 
 Below is the canonical layout.
 You’ll plug in the real sheet names + function names from your .xlsl repo 
@@ -235,6 +235,14 @@ You’ll plug in the real sheet names + function names from your .xlsl repo
 For now I’ll scaffold the entire architecture so you have the master blueprint.
 
 ⸻
+ :the Author:  
+The user is working with high-fidelity orbital mechanics calculations using IDL 9 on macOS Sequoia. They need to calculate osculating orbital elements (Keplerian parameters) from Two-Line Element (TLE) sets, with specific requirements for relativistic corrections for LEO satellites. The goal is to validate these calculations against SGP4 propagator outputs and cross-check results with Matplotlib-generated ground track plots. They also need to handle coordinate transformations between ECI (J2000) and ECEF frames with proper Earth rotation modeling.  Their current implementation uses IDL's numerical libraries but is struggling to achieve precision beyond 6-digit accuracy in mean anomaly computation. They're requesting either an optimized algorithm or a verified subroutine for position/velocity propagation under J2 perturbation.  Key technical components involved: - IDL 9 programming environment - TLE parsing and interpretation - SGP4 propagator implementation - Keplerian orbital element calculations - Relativistic corrections (important for high-precision LEO work) - J2 perturbation modeling (Earth's oblateness effect) - Coordinate frame transformations (ECI J2000 to ECEF) - Earth rotation models - Matplotlib visualization for ground track validation - macOS Sequoia operating system compatibility  The user has clearly identified a precision problem in their current implementation, specifically in mean anomaly computation, which suggests numerical accuracy issues, algorithm limitations, or potential problems with how they're handling perturbations.  ## What I believe I know — and what I'm uncertain about  **IDL Version and Platform**: I'm aware that IDL 9.0 exists as a version of the Interactive Data Language developed by NV5 Geospatial (formerly Harris Geospatial). I'm moderately confident about the existence of IDL 9.0 but less certain about specific feature differences from IDL 8.x or about macOS Sequoia compatibility specifics. The user has stated IDL 9 on macOS Sequoia, which I'll take as ground truth, but I should verify Sequoia compatibility as this is a relatively new macOS version.  **TLE Format and SGP4**: I'm quite confident about the basic TLE format (three lines with satellite catalog number, element set number, and orbital parameters) and that SGP4 is the standard propagator used by NORAD for near-Earth satellites. I'm highly certain that SGP4 has known limitations and that specialized high-fidelity applications require additional corrections. The specific constants used in SGP4 (WGS72 vs other gravitational models) and the exact mathematical formulation would need verification, as there are multiple versions of SGP4 implementation.  **Osculating Orbital Elements**: I'm confident that osculating elements represent instantaneous orbital parameters and differ from mean elements stored in TLEs. I know the six classic Keplerian elements: semi-major axis, eccentricity, inclination, argument of perigee, right ascension of ascending node, and mean anomaly. I'm less certain about the exact transformation algorithms needed to go from Cartesian state vectors to osculating elements, particularly with relativistic and perturbation corrections applied.  **Relativistic Corrections**: I'm aware that general relativistic effects are important for precise orbital calculations, particularly affecting mean motion and orbital period. For LEO satellites, these corrections are on the order of centimeters to meters in position over one orbit. I believe the primary relativistic correction involves the additional term in the gravitational parameter or adjustments to the mean motion. I'm uncertain about the specific mathematical formulation expected for this application and whether simple first-order corrections suffice.  **J2 Perturbation**: I'm confident that J2 perturbation accounts for Earth's oblateness and causes precession of the right ascension of ascending node and argument of perigee, along with period variations. The standard J2 perturbation equations are well-documented in astrodynamics textbooks. I'm uncertain about whether the user needs only first-order J2 effects or higher-order corrections for their 6-digit precision requirement.  **Coordinate Transformations**: I'm confident that ECI (Earth-Centered Inertial) J2000 and ECEF (Earth-Centered Earth-Fixed) are standard coordinate frames and that transformations involve Earth rotation plus potentially polar motion and UT1-UTC corrections. I'm less certain about the exact transformation matrices and whether the user needs IAU precession-nutation models or simpler analytical approximations.  **Matplotlib Ground Tracks**: I'm confident that Matplotlib can generate ground track plots by propagating orbital position in ECEF frame and mapping to geographic coordinates. I'm uncertain about what specific plotting approach would best serve validation purposes and whether there's a standard library function the user might be missing.  **Numerical Precision Issue**: I'm moderately confident that the 6-digit accuracy limitation in mean anomaly computation suggests either algorithm issues, accumulated numerical error, or insufficient iteration tolerance in solving Kepler's equation. The user mentioned they want "high-fidelity" calculations, which suggests sub-meter to decimeter precision may be their goal, requiring algorithms that maintain numerical stability.  ## Ambiguities in the request  **Precision Requirements**: The user states they're struggling with precision beyond 6-digit accuracy in mean anomaly computation but doesn't specify what precision level they actually need. Is 6-digit (0.0001%) accuracy insufficient, or do they need 8+ digits? For LEO satellites, different applications have vastly different requirements—launch operations might tolerate meters of error while formation flying requires centimeters. This ambiguity would change which algorithms and corrections are appropriate.  **Relativistic Correction Scope**: The user mentions "relativistic corrections" but doesn't specify which relativistic effects they need. The general relativistic correction to orbital period (approximately 1 part in 10^6 for LEO) is standard, but some applications also require Schwarzschild deflection, Lense-Thirring frame dragging, or de Sitter precession effects. I need to know if they want only the primary orbital period correction or full relativistic treatment.  **SGP4 Validation Approach**: The user wants to validate against SGP4 propagator outputs but doesn't specify whether they want to compare against the public SGP4 implementation (with known limitations) or against a high-fidelity numerical propagator they would consider "ground truth." The validation approach differs significantly depending on whether SGP4 is the reference standard or a comparison point.  **Ground Track Validation Criteria**: The user mentions cross-checking with Matplotlib-generated ground tracks but doesn't specify what constitutes successful validation. Are they looking for visual agreement, numerical agreement within a tolerance, or something else? Ground track validation could mean comparing computed sub-satellite points against known station passes or simply checking internal consistency.  **Current Implementation Details**: The user mentions using "IDL's numerical libraries" but doesn't specify which specific functions or algorithms they're currently using. This makes it difficult to identify whether the precision issue stems from a fundamental algorithmic limitation, improper use of existing functions, or a numerical implementation problem.  **J2 Perturbation Scope**: While the user mentions J2 perturbation, it's unclear whether they need only the secular J2 effects (precession rates, period modification) or also short-period periodic terms. For high-fidelity LEO work, both are typically important, but the computational approach differs significantly.  **TLE Epoch Handling**: The user doesn't specify whether the TLEs they're working with are recent or historical, whether they're dealing with decaying orbits or standard LEO, or what the expected accuracy of the source TLE data is. TLE accuracy itself varies significantly based on age and drag conditions.  **Role and Context**: The user hasn't explained their role or context—whether they're a aerospace engineer, researcher, hobbyist, or student. This matters because it affects what level of explanation is appropriate and whether certain industry-standard tools would be expected to be known.  ## Everything I need to confirm before responding  - IDL 9.0 feature set and capabilities for orbital mechanics calculations - macOS Sequoia compatibility with IDL 9.0 - Current SGP4 implementation details and available libraries - TLE parsing algorithms and validation in IDL - Standard algorithms for computing osculating elements from state vectors - Relativistic correction formulations for LEO satellite orbits - J2 perturbation propagation algorithms and implementation - Coordinate transformation matrix implementations (ECI J2000 to ECEF) - Earth rotation model parameters and implementation - Matplotlib capabilities for orbital ground track visualization - Numerical precision issues in Kepler's equation solution - Available numerical libraries in IDL 9.0 for perturbation propagation - High-precision orbital propagator alternatives for validation - Known limitations of SGP4 for LEO applications - Standard validation approaches for orbital calculations - Error sources in mean anomaly computation  ## Web search queries  Search queries would need to cover the technical domains involved. Let me craft dense, expert-level keyword strings for each verification need:  idl 9 orbital mechanics numerical libraries Kepler equation precision macOS idl 9 macOS Sequoia compatibility system requirements installation issues sgp4 propagator implementation IDL library satellite position calculation two-line element set TLE parsing algorithm NORAD format validation osculating orbital elements calculation from position velocity state vector IDL relativistic correction orbital mechanics LEO satellite mean motion J2 perturbation j2 perturbation propagator position velocity Earth oblateness semi-major axis ECI J2000 to ECEF transformation matrix Earth rotation sidereal time IDL matplotlib ground track orbital visualization latitude longitude sub-satellite point Kepler equation solution numerical precision Newton-Raphson iteration convergence orbital mechanics high-precision orbital propagator LEO satellite validation benchmark comparison IDL numerical precision double precision floating point orbital calculations sgp4 WGS72 gravitational model limitations LEO accuracy error analysis NORAD two-line element set accuracy statistics decay prediction validation coordinate frame transformation IAU precession nutation model ECI ECEF Earth rotation model UT1-UTC polar motion IERS conventions implementation orbital element conversion Keplerian Cartesian position velocity algorithm perturbation IDL function library astrodynamics satellite orbit computational methods LEO satellite orbit determination precision requirements formation flying comparison satellite ground track validation against NORAD tracking network observations J2 perturbation secular periodic terms short period variation orbital lifetime
+
+
+
+:Inline-images:
+.. AURA:
+[Ecosystem-Qubuhub](https://gravatar.com/167559384web4application)
 
 1. [Home_Page](aura.web)
 3. [paperweb/index.md](fastcore.fast.ai)
