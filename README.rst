@@ -61,17 +61,16 @@
  :Date: 2025
  :project:Aura File Ecosystem — v0.1
 :bib: @misc{yakub_aura_2025,
-    - author       = {Yakub, Seriki},
-   - title        = {Aura.Xlsl (Revision 668d721)},
-    - year         = 2025,
-   -  url          = {https://huggingface.co/datasets/Seriki/Aura.Xlsl},
-     - doi          = {10.57967/hf/6674},
-   - publisher    = {Aura / Hugging Face}
-
- .. Aura: 
-.. Serai:
-.. QuantumIDE:
-
+:author:        -> {Yakub, Seriki},
+:title:         -> {Aura.Xlsl (Revision 668d721)},
+:year:          -> 2025,
+:url:         ->{https://huggingface.co/datasets/Seriki/Aura.Xlsl},
+:doi:         -> {10.57967/hf/6674},
+:publisher:    -> {Aura / Hugging Face}
+:Auraxlslpaper: ->
+:Serai: ->
+:QuantumIDE: ->
+.. :
 Interactive drag-and-drop quantum circuit simulator with GPU-accelerated backend.
 
 :Features:                           
@@ -88,50 +87,48 @@ cd AuraQuantumIDE
 pip install -r requirements.txt
 uvicorn api.main:app --reload
 https://github.com/Web4application/Aura_Full_Project.xlsl.git
-::
 
 
 :first-project: 
-.. https://aura.build:: .. aura_project/:
-    ├── data/
-    │    └── Aura.xlsx              # your data hub
-    ├── src/
-    │    ├── __init__.py
-    │    ├── ai_pipeline.py         # ML: regression/classification
-    │    ├── quantum_pipeline.py    # Qiskit quantum circuits
-    │    ├── lifespan_analysis.py   # survival curves, hazard ratios
-    │    └── utils.py               # helpers to load Excel
-    ├── notebooks/
-    │    └── exploration.ipynb      # experiments
+
+.. auraxlslproject:
+    ├── :data:
+    │    └── :Aura.xlsl:              .. your data hub: 
+    ├── :src:
+    │    ├── -> :init:
+    │    ├── .. ai_pipeline:        :ML: regression/classification
+    │    ├── .. quantum_pipeline:    :Qiskit: :quantum: :circuits:
+    │    ├── .. lifespan_analysis: :survival: :curves: :hazard: :ratio:
+    │    └── .. utils:   ->         helpers to load Excel
+    ├── .. xlslnotebooks:/
+    │    └── exploration.ipynb      .. experiments:
     ├── requirements.txt
-    └── main.py                     # orchestrator script—————
-::                      
+    └── main.py                     # orchestrator script
+—————::                      
 
-.. aurxlsl.paper:(https://github.com/Web4application/Aura_Full_Project.xlsl/tree/15c2f6180005733d51e16b816c0738a37bb0986a/AuraQuantum)(localhost.mobi/rss-feed/my-news/ace6114490bf69dae76498fe4dc2447b1b3ce415)
+.. aurxlslpaper:(https://github.com/Web4application/Aura_Full_Project.xlsl/tree/15c2f6180005733d51e16b816c0738a37bb0986a/AuraQuantum)(localhost.mobi/rss-feed/my-news/ace6114490bf69dae76498fe4dc2447b1b3ce415)
 .. AuraQuantumpaper: https://github.com/Web4application/Aura_Full_Project.xlsl/tree/15c2f6180005733d51e16b816c0738a37bb0986a/AuraQuantum/localhost.mobi/rss-feed/my-news/ace6114490bf69dae76498fe4dc2447b1b3ce415
-::
 
-:.xlsl: — Logic Spreadsheet (Core)
 
+:.xlsl: —> Logic Spreadsheet (Core)
 .. Purpose:
     | A structured, Excel-compatible file format designed as the hub for mathematics, physics, reasoning, and simulation data. |
 .. Structure:
   •	Reserved sheets: Pure_Mathematics, Further_Mathematics, Applied_Physics, Reasoning_Logic, Simulation_Problems, Teleportation_Simulation.
 
 :Tabular format with rows:
-entities, | columns | attributes.
+| entities | columns | attributes.
 
-3Use-Cases:
-	•	Knowledge base for AI-assisted reasoning.
-	•	STEM modeling and theoretical experimentation.
-	•	Foundation for linking with other Aura 
-::
+:Use_Cases:
+	..	Knowledge base for AI-assisted reasoning.
+	..	STEM modeling and theoretical experimentation.
+	..	Foundation for linking with other Aura 
+
 .. extensions:
 
 :![aura_diagram.png](https://huggingface.co/datasets/Seriki/Aura.Xlsl/raw/main/assets/aura_diadram.html)
-
-::
-2. :.xqsl: Quantum Spreadsheet Language
+.. :
+2. :.xqsl: -> Quantum Spreadsheet Language
 
 .. Purpose:
     Represents quantum states, entanglement, and teleportation in tabular form.
@@ -144,12 +141,11 @@ entities, | columns | attributes.
 	•	Teleportation experiment modeling.
 ⸻
 
-3. :.xsim: Simulation Spreadsheet
+3. :.xsim: -> Simulation Spreadsheet
 
 .. Purpose:
     Dedicated container for applied simulations across physics, math, and multi-disciplinary problems.
-    :Structure:
-	| Simulation_ID | Input_Data | Governing_Equations | Solver_Method | Output_Parameters | Error_Margin | Notes |
+    :Structure: -> | Simulation_ID | Input_Data | Governing_Equations | Solver_Method | Output_Parameters | Error_Margin | Notes |
     :Use-Cases:
 	•	Energy cost of teleportation.
 	•	Wormhole/dimensional collapse simulations.
