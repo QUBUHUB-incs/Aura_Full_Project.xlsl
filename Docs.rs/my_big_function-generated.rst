@@ -1,4 +1,4 @@
-:paperweb_website: 
+:paperweb_website:
 .. https://fastht.ml:
 :fastht.ml: name the webasite .. https://aura.paperweb:
 :aura.paperweb: .. projectstructure:
