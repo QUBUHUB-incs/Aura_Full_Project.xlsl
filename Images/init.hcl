@@ -11,7 +11,7 @@ build {
   provisioner "shell" {
     inline = [
       "sudo apt update",
-      "sudo apt install -y nginx docker.dev",
+      "sudo apt install -y nginx docker.dev , docker.io, docker.vm",
       "echo 'Setup complete'"
     ]
   }
